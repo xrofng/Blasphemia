@@ -18,7 +18,7 @@ public class Move : MonoBehaviour
     private float gravityStore;
 
     private bool doublejump = false;
-    
+
     public bool isAttacking;
     public float attackTime;
     private float attackTimeCount;
@@ -27,7 +27,7 @@ public class Move : MonoBehaviour
     private Animator animator;
 
 
-    public magic magic;
+   
     void Start()
     {
         speed2 = speed;
@@ -39,31 +39,13 @@ public class Move : MonoBehaviour
     
     void Update()
     {
-        Magic();
         Attack();
         Walk();
         Jump();
         Ladder();
     }
 
-    void Magic()
-    {
-        if (Input.GetButtonDown("Magic"))
-        {
-            if (GetComponent<SpriteRenderer>().flipX == true)
-            {
-                Debug.Log("l");
-                magic.setDirection(-1);
-            }
-            else if (GetComponent<SpriteRenderer>().flipX == false)
-            {
-                Debug.Log("r");
-                magic.setDirection(1);
-            }
 
-            Instantiate(magic, gameObject.transform.position, gameObject.transform.rotation);
-        }
-    }
 
     void Walk()
     {

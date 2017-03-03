@@ -10,15 +10,18 @@ public class grapplingHook : MonoBehaviour
     public float distance = 10f;
     public LayerMask mask;
     public float step = 0.02f;
+    private Ouros Ouros;
+    public float grabLength;
 
     // Use this for initialization
-    
+
     void Start ()
     {
         joint = GetComponent<DistanceJoint2D>();
         joint.enabled = false;
         line.enabled = false;
-	}
+        Ouros = FindObjectOfType<Ouros>();
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -31,9 +34,23 @@ public class grapplingHook : MonoBehaviour
             joint.enabled = false;
         }
 
-	    if(Input.GetKeyDown(KeyCode.Y))
-        {
-            targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+	    if(Input.GetButtonDown("Special"))
+        {           
+            if (Input.GetAxisRaw("Vertical") == 1)
+            {
+                targetPos.y = transform.position.y + grabLength;
+            } else
+            {
+                targetPos.y = 0;
+            }
+            if (Ouros.GetComponent<SpriteRenderer>().flipX == false)
+            {
+                targetPos.x = transform.position.x + grabLength;
+            }
+            else
+            {
+                targetPos.x = transform.position.x - grabLength;
+            }
             targetPos.z = 0;
 
             hit = Physics2D.Raycast(transform.position, targetPos-transform.position, distance, mask);
@@ -65,16 +82,17 @@ public class grapplingHook : MonoBehaviour
 
         line.SetPosition(1, joint.connectedBody.transform.TransformPoint(joint.connectedAnchor));
 
-        if(Input.GetKey(KeyCode.Y))
+        if(Input.GetButton("Special"))
 
         {
             line.SetPosition(0, transform.position);
         }
 
-        if(Input.GetKeyUp(KeyCode.Y))
+        if(Input.GetButtonUp("Special"))
         {
             joint.enabled = false;
             line.enabled = false;
+            this.enabled = false;
         }
 	}
 }

@@ -1,13 +1,21 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class magic : MonoBehaviour
+public class Magic : MonoBehaviour
 {
-    [SerializeField]
-    private float speed = 1.5f;
+    public string magicName;
+    public string description;
+    public Sprite icon;
+    public string type;
+    public float speed;
     public int direction;
+    public bool unLimit;
+    public int charge;
+    
+    private Ouros Ouros;
     // Update is called once per frame
-    magic(int d)
+    Magic(int d)
     {
         direction = d;
     }
@@ -15,9 +23,21 @@ public class magic : MonoBehaviour
     {
         direction = d;
     }
-
-    void Update ()
+    void Start()
     {
+        Ouros = FindObjectOfType<Ouros>();
+    }
+
+    void Update()
+    {
+        if (type == "projectile")
+        {
+            projectile();
+        }
+    }
+
+    void projectile()
+    {        
         if (direction == 1)
         {
             GetComponent<SpriteRenderer>().flipX = false;
@@ -29,3 +49,5 @@ public class magic : MonoBehaviour
         transform.Translate(speed * Time.deltaTime * direction, 0, 0);
     }
 }
+    
+
