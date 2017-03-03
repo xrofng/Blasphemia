@@ -4,25 +4,34 @@ using System.Collections;
 public class Move : MonoBehaviour
 {    
     public float speed;
-    public float speed2;
+    public float maxSpeed;
     public float smooth;
-
+    //aboutjump
     public float jumpSpeed;
     public float jumpDistance;
-
-    // private Vector3 moveDirection = Vector3.zero;
+    private float doublieJumpSpeed;
+    
+    //status bool
+    public bool jumping;
     public bool isOnGround;
     public bool isOnLadder;
+    public bool isOnSlope;
+    private bool startCountTime;
+
+    //ladder
     public float climbSpeed;
     private float climbVelo;
+    
+    //untilities
     private float gravityStore;
-
+    
+    private float countAJ;
     private bool doublejump = false;
-
+    private float supportForce;
     public bool isAttacking;
     public float attackTime;
     private float attackTimeCount;
-
+    
     private Rigidbody2D rid2d;
     private Animator animator;
 
@@ -30,7 +39,8 @@ public class Move : MonoBehaviour
    
     void Start()
     {
-        speed2 = speed;
+        doublieJumpSpeed = 80*(jumpSpeed/100);
+        maxSpeed = speed;
         attackTimeCount = attackTime;
         rid2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -45,7 +55,28 @@ public class Move : MonoBehaviour
         Ladder();
     }
 
+    void FixedUpdate()
+    {
+        
+        if (startCountTime == true)
+        {
+            JumpCountTime();
+        }
+    }
 
+
+
+    void JumpCountTime()
+    {
+        if (countAJ > 0.3)
+        {
+            jumping = true;
+        } else
+        {
+            jumping = true;
+        }
+        countAJ += Time.deltaTime;
+    }
 
     void Walk()
     {
@@ -53,7 +84,7 @@ public class Move : MonoBehaviour
         if (Input.GetButton("Horizontal"))
         {
             //smoothy accel
-            speed = speed2 * Input.GetAxis("Horizontal");
+            speed = maxSpeed * Input.GetAxis("Horizontal");
         } 
         if (Input.GetButtonUp("Horizontal"))
         {   
@@ -95,6 +126,9 @@ public class Move : MonoBehaviour
         {
             if (Input.GetButtonDown("Jump") && isOnGround == true)
             {
+                countAJ = 0;
+                startCountTime = true;
+               
                 if (Input.GetAxisRaw("Horizontal") > 0)
                 {
                     rid2d.AddForce(new Vector2(jumpDistance, jumpSpeed));
@@ -110,19 +144,37 @@ public class Move : MonoBehaviour
             }
             if (Input.GetButtonDown("Jump") && isOnGround != true && doublejump == false)
             {
+                
+                startCountTime = false;
+                if (countAJ > 0.44)
+                {
+                    float ajPercent = countAJ * (100 / 0.44f);
+                    supportForce = doublieJumpSpeed * (ajPercent / 100);
+                }
+                else if (countAJ < 0.44)
+                {
+                    float ajPercent = countAJ * (100 / 0.44f);
+                    supportForce = doublieJumpSpeed * (ajPercent / 100);
+                } else
+                {
+
+                    supportForce = doublieJumpSpeed;
+                }
+               
                 if (Input.GetAxisRaw("Horizontal") > 0)
                 {
-                    rid2d.AddForce(new Vector2(jumpDistance, jumpSpeed));
+                    rid2d.AddForce(new Vector2(jumpDistance, supportForce));
                 }
                 else if (Input.GetAxisRaw("Horizontal") < 0)
                 {
-                    rid2d.AddForce(new Vector2(-jumpDistance, jumpSpeed));
+                    rid2d.AddForce(new Vector2(-jumpDistance, supportForce));
                 }
                 else
                 {
-                    rid2d.AddForce(new Vector2(0f, jumpSpeed));
+                    rid2d.AddForce(new Vector2(0f, supportForce));
                 }
                 doublejump = true;
+                print(supportForce);
             }
         }
 
@@ -183,23 +235,30 @@ public class Move : MonoBehaviour
        
         if (other.gameObject.tag == "Platform")
         {
-
+            countAJ = 0;
+            jumping = false;
             doublejump = false;
             isOnGround = true;
-        }
-        else
+        } else
         {
-            isOnGround = false;
+            
         }
         
     }
+
+
     void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Platform")
+        if (jumping == true)
         {
-            isOnGround = false;
+            if (other.gameObject.tag == "Platform")
+            {
+                isOnGround = false;
+                countAJ = 0;
+                startCountTime = true;
+            }
         }
-       
+    
 
     }
 
