@@ -43,7 +43,7 @@ public class cameraFollow : MonoBehaviour
         {
             Vector3 playerpos = Ouros.transform.position;
             playerpos.z = transform.position.z;
-            transform.position = playerpos;
+            transform.position = new Vector3 (playerpos.x,playerpos.y+4,playerpos.z);
         }
     }
 }

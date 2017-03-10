@@ -8,6 +8,11 @@ TagManager:
   - Player
   - PlayerWeapon
   - Ladder
+  - Slope
+  - Wall
+  - Magic
+  - EnemyAttack
+  - Enemy
   layers:
   - Default
   - TransparentFX

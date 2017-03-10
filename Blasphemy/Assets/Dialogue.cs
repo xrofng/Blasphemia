@@ -5,53 +5,76 @@ using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour {
 
-    private Text text;
+    
     public float chrono;
     public string[] dialogue;
     private bool enterPressed;
     public float charRate;
+    private bool started;
+    private int num;
+
+    public bool permit;
+    public Image textBox;
+    private Text text;
     // Use this for initialization
+    void permissive()
+    {
+        if(permit == true)
+        {
+            text.enabled = true;
+            textBox.enabled = true;
+        } else
+        {
+            text.enabled = false;
+            textBox.enabled = false;
+        }
+    }
     void Start () {
         text = GetComponent<Text>();
-        text.text = "";
-        enterPressed = false;
+        if (permit == true)
+        {
+            text.text = "";
+            enterPressed = false;
+            num = 0;
+            started = false;
+        }
+        
     }
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown("Return") && enterPressed == false)
-        {
-            text.text = "";
-            enterPressed = true;
-            StartCoroutine(DisplayDialogue(dialogue[0]));
+        if(permit == true) { }
+            if (started == false)  {
+            StartCoroutine(DisplayDialogue(dialogue[num]));
+            started = true;
+            num += 1;
         }
-	}
+        permissive();
 
-    private IEnumerator DisplayDialogue(string d)
-    {
+    }
+
+    private IEnumerator DisplayDialogue(string d){
         text.text = "";
-        for (int i = 0; i < d.Length; i++) {
-            text.text += d[i];
-            
-            if (i < d.Length)
-            {
-                if (i < d.Length)
+        int charCount = 0;
+        while (charCount < d.Length){
+            text.text += d[charCount];
+            charCount++;
+            if (charCount < d.Length) {               
+                if (Input.GetButton("Return"))
                 {
-                    if (Input.GetButton("Return"))
-                    {
-                        yield return new WaitForSeconds(chrono*charRate);
-                    } else
-                    {
-                        yield return new WaitForSeconds(chrono);
-                    }
+                    yield return new WaitForSeconds(chrono * charRate);
                 }
-
-               
-            } else
-            {
+                else
+                {
+                    yield return new WaitForSeconds(chrono);
+                }
+            }            
+            else {
                 break;
             }
-        }
+        }     
+          
+        
 
         while (true)
         {
@@ -61,6 +84,7 @@ public class Dialogue : MonoBehaviour {
             }
             yield return 0;
         }
+        started = false;
         enterPressed = false;
         text.text = "";
     }

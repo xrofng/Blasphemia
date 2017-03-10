@@ -14,6 +14,8 @@ public class Item : MonoBehaviour {
     public int amount;
     private Ouros Ouros;
 
+    public Magic magicGet;
+
     Item(string n, int p, string d, Sprite i, bool c, bool u,int a)
     {
         itemName = n;
@@ -23,6 +25,7 @@ public class Item : MonoBehaviour {
         isConsumable = c;
         isUsable = u;
         amount = a;
+        
     }
 
     // Usbool isUsable;e this for initialization
@@ -34,24 +37,45 @@ public class Item : MonoBehaviour {
 	void Update () {
 		
 	}
+    void skillGet()
+    {
+        if (this.itemName == "DarkFiraga")
+        {
+            for (int i=1;i< Ouros.magicList.Length; i++)
+            {
+                if (Ouros.magicList[i] == null)
+                {
+                    Ouros.magicList[i] = magicGet;
+                    return;
+                }
+                
+            }
+            
+        }
+    }
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Player")
         {
+            skillGet();
             Item hand = Ouros.item;
             Debug.Log(hand.amount);
             Debug.Log("get item");
-            
-            if (hand.itemName == this.itemName)
+            for (int i=1; i< Ouros.itemList.Length; i++)
             {
-                hand.amount += this.amount;
+                Debug.Log(Ouros.itemList[i].name);
+                if (Ouros.itemList[i].itemName == this.itemName)
+                {
+                    Ouros.itemList[i].amount += this.amount;
+                }
+                Destroy(gameObject);
+                if (Ouros.GetComponent<Move>().isOnGround == true)
+                {
+                    Ouros.GetComponent<Move>().isOnGround = true;
+                }
+                Debug.Log(hand.amount);
             }
-            Destroy(gameObject);
-            if (Ouros.GetComponent<Move>().isOnGround == true)
-            {
-                Ouros.GetComponent<Move>().isOnGround = true;
-            }
-            Debug.Log(hand.amount);
+           
         }
 
     }
@@ -59,10 +83,16 @@ public class Item : MonoBehaviour {
     public void useItem()
     {           
         Debug.Log("Item used");
+        Debug.Log(this.name);
         if (this.itemName == "Potion")
         {
             Ouros = FindObjectOfType<Ouros>();
             Ouros.GetComponent<Ouros>().HP = Ouros.GetComponent<Ouros>().HP + 100;
+        }
+        if  (this.itemName == "Ether")
+        {
+            Ouros = FindObjectOfType<Ouros>();
+            Ouros.GetComponent<Ouros>().magic.charge += 5;
         }
     }
 }

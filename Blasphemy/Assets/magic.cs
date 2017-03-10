@@ -12,6 +12,7 @@ public class Magic : MonoBehaviour
     public int direction;
     public bool unLimit;
     public int charge;
+
     
     private Ouros Ouros;
     // Update is called once per frame
