@@ -15,6 +15,8 @@ public class Item : MonoBehaviour {
     private Ouros Ouros;
 
     public Magic magicGet;
+    public GameObject popup;
+    public string pickUpMessage;
 
     Item(string n, int p, string d, Sprite i, bool c, bool u,int a)
     {
@@ -46,13 +48,13 @@ public class Item : MonoBehaviour {
                 if (Ouros.magicList[i] == null)
                 {
                     Ouros.magicList[i] = magicGet;
+                   
                     return;
-                }
-                
-            }
-            
+                }                
+            }            
         }
     }
+
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Player")
@@ -63,7 +65,7 @@ public class Item : MonoBehaviour {
             Debug.Log("get item");
             for (int i=1; i< Ouros.itemList.Length; i++)
             {
-                Debug.Log(Ouros.itemList[i].name);
+                
                 if (Ouros.itemList[i].itemName == this.itemName)
                 {
                     Ouros.itemList[i].amount += this.amount;

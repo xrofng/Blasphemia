@@ -21,9 +21,14 @@ public class Move : MonoBehaviour
     //ladder
     public float climbSpeed;
     private float climbVelo;
+    public int speedExitLadder;
 
     //untilities
     private float gravityStore;
+
+    //weapon
+    public GameObject weapon;
+
 
     private float countAJ;
     private bool doublejump = false;
@@ -34,9 +39,9 @@ public class Move : MonoBehaviour
 
     private Rigidbody2D rid2d;
     private Animator animator;
-
-
-
+    
+    private Ouros Ouros;
+    
     void Start()
     {
         doublieJumpSpeed = 80 * (jumpSpeed / 100);
@@ -44,14 +49,23 @@ public class Move : MonoBehaviour
         attackTimeCount = attackTime;
         rid2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        
         gravityStore = rid2d.gravityScale;
+        Ouros = GetComponent<Ouros>();
     }
 
     void Update()
-    {
-        Attack();
-        Walk();
-        Jump();
+    {             
+        if (isOnLadder == true && isOnGround == false)
+        {
+                
+        } else
+        {
+            Walk();
+            Jump();
+            Attack();
+        }
+        OurosUse();
         Ladder();
     }
 
@@ -63,6 +77,35 @@ public class Move : MonoBehaviour
             JumpCountTime();
         }
     }
+
+    //animator
+    public static int state_Idle = 0; //
+    public static int state_Walk = 1; //
+    public static int state_Jump = 2; //
+    public static int state_GroundSlash = 3; //
+    public static int state_AirSlash = 4;//
+    public static int state_GroundMagic = 5;//
+    public static int state_AirMagic = 6;
+    public static int state_GroundThrust = 7;
+    public static int state_AirThrust = 8;
+    public static int state_Ladder = 9; //
+    public static int state_Item = 10; //
+
+    public int _currentAnimationState = state_Idle;
+    public void changeState(int stateI)
+    {
+        if (_currentAnimationState == stateI)
+        {
+            return;
+        }
+        else
+        {
+            animator.SetInteger("state", stateI);
+            _currentAnimationState = stateI;
+        }
+    }
+
+
 
     void JumpCountTime()
     {
@@ -83,10 +126,19 @@ public class Move : MonoBehaviour
         if (Input.GetButton("Horizontal"))
         {
             //smoothy accel
+            if (isOnGround == false)
+            {
+                changeState(state_Jump);
+            } else
+            {
+                changeState(state_Walk);
+            }
+            
             speed = maxSpeed * Input.GetAxis("Horizontal");
         }
         if (Input.GetButtonUp("Horizontal"))
         {
+            changeState(state_Idle);
             //smoothy stop
             float direction = Input.GetAxis("Horizontal");
             if (Input.GetAxis("Horizontal") > 0)
@@ -137,8 +189,11 @@ public class Move : MonoBehaviour
         {
             if (Input.GetButtonDown("Jump"))
             {
+                
+                changeState(state_Jump);
                 if (isOnGround == true || isOnSlope == true)
                 {
+                    
                     gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
                     gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
                     countAJ = 0;
@@ -146,17 +201,19 @@ public class Move : MonoBehaviour
 
                     if (Input.GetAxisRaw("Horizontal") > 0)
                     {
+                        changeState(state_Jump);
                         rid2d.AddForce(new Vector2(jumpDistance, jumpSpeed));
                     }
                     else if (Input.GetAxisRaw("Horizontal") < 0)
                     {
+                        changeState(state_Jump);
                         rid2d.AddForce(new Vector2(-jumpDistance, jumpSpeed));
                     }
                     else
                     {
                         rid2d.AddForce(new Vector2(0f, jumpSpeed));
                     }
-                    print("nor");
+                   
                 }
             }
             if (Input.GetButtonDown("Jump") && isOnGround != true && doublejump == false && isOnSlope == false)
@@ -205,14 +262,26 @@ public class Move : MonoBehaviour
         {
             if (Input.GetButton("Vertical"))
             {
+                changeState(state_Ladder);
+                isOnGround = false;
                 Debug.Log("Ladder");
                 rid2d.gravityScale = 0f;
                 climbVelo = climbSpeed * Input.GetAxisRaw("Vertical");
                 transform.Translate(Vector2.up * Time.deltaTime * climbVelo);
-
             }
-
-
+            float direction = Input.GetAxis("Horizontal");
+            if (Input.GetButtonDown("Jump"))
+            {
+                rid2d.gravityScale = 0f;
+                if (Input.GetAxis("Horizontal") > 0)
+                {
+                    rid2d.AddForce(new Vector2(speedExitLadder * direction  , rid2d.velocity.y));
+                }
+                else if (Input.GetAxis("Horizontal") < 0)
+                {
+                    rid2d.AddForce(new Vector2(speedExitLadder * direction , rid2d.velocity.y));
+                }
+            }          
         }
         if (isOnLadder == false)
         {
@@ -222,21 +291,32 @@ public class Move : MonoBehaviour
 
     void Attack()
     {
-
-
-
-        if (Input.GetButtonDown("Attack") && isOnGround == true && animator.GetInteger("isAttack") == 0 && isAttacking == false)
+        if (Input.GetButtonDown("Attack") && isOnGround == true && animator.GetInteger("state") != 3 && isAttacking == false)
         {
+            
             if (GetComponent<SpriteRenderer>().flipX == true)
             {
-                animator.SetInteger("isAttack", 1);
+                
             }
             else
             {
-                animator.SetInteger("isAttack", 2);
+                
             }
+            changeState(state_GroundSlash);
             isAttacking = true;
 
+        } else if (Input.GetButtonDown("Attack") && isOnGround == false && animator.GetInteger("state") != 3 && isAttacking == false)
+        {
+            changeState(state_AirSlash);
+            if (GetComponent<SpriteRenderer>().flipX == true)
+            {
+                
+            }
+            else
+            {
+                
+            }
+            isAttacking = true;
         }
 
         if (isAttacking == true)
@@ -252,7 +332,18 @@ public class Move : MonoBehaviour
 
     }
 
+    void OurosUse()
+    {
+        if (Input.GetButtonDown("Special") && Ouros.magicActive == true)
+        {
+            changeState(state_GroundMagic);
+        }
+        if (Input.GetButtonDown("Item") && isOnGround == true)
+        {
+            changeState(state_Item);
 
+        }
+    }
 
     void OnCollisionStay2D(Collision2D other)
     {
@@ -264,6 +355,7 @@ public class Move : MonoBehaviour
             doublejump = false;
             isOnGround = true;
             isOnSlope = false;
+            changeState(state_Idle);
         }
         else if (other.gameObject.tag == "Slope")
         {
@@ -273,10 +365,12 @@ public class Move : MonoBehaviour
             doublejump = false;
             isOnGround = true;
             gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            changeState(state_Idle);
         }
         else
         {
             isOnSlope = false;
+
         }
 
     }
@@ -290,6 +384,7 @@ public class Move : MonoBehaviour
                 isOnGround = false;
                 countAJ = 0;
                 startCountTime = true;
+
             }
         }
 

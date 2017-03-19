@@ -17,6 +17,12 @@ public class Dialogue : MonoBehaviour {
     public Image textBox;
     private Text text;
     // Use this for initialization
+
+    public Dialogue(string descrip)
+    {
+        text.text = descrip;
+    }
+
     void permissive()
     {
         if(permit == true)

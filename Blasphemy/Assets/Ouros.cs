@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+
 
 public class Ouros : MonoBehaviour
 {
@@ -23,7 +26,7 @@ public class Ouros : MonoBehaviour
 
     public Magic magic;
     public Magic[] magicList;
-    private bool magicActive;
+    public bool magicActive;
     private float magicTimeCount;
     private int magicLable = 1;
     public Image cd;
@@ -54,7 +57,7 @@ public class Ouros : MonoBehaviour
     {
         if (this.HP <= 0)
         {
-
+            SceneManager.LoadScene(0);
         }
     }
 
@@ -156,6 +159,7 @@ public class Ouros : MonoBehaviour
     {
         if (Input.GetButtonDown("Special") && magicActive == true)
         {
+            
             if (magic.charge > 0)
             {
                 if (magic.type == "projectile")

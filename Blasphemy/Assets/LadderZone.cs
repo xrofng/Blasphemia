@@ -22,6 +22,10 @@ public class LadderZone : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
+            if (thePlayer._currentAnimationState == 9)
+            {
+                thePlayer.changeState(2);
+            }
             thePlayer.isOnLadder = false;
         }
     }

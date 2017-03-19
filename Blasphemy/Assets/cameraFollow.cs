@@ -8,7 +8,7 @@ public class cameraFollow : MonoBehaviour
     [SerializeField]
     private float speed = 5.0f;
     public int limit;
-
+    public int above;
     void Start()
     {
         Ouros = FindObjectOfType<Ouros>();
@@ -43,7 +43,7 @@ public class cameraFollow : MonoBehaviour
         {
             Vector3 playerpos = Ouros.transform.position;
             playerpos.z = transform.position.z;
-            transform.position = new Vector3 (playerpos.x,playerpos.y+4,playerpos.z);
+            transform.position = new Vector3 (playerpos.x,playerpos.y+above,playerpos.z);
         }
     }
 }
