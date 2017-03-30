@@ -29,7 +29,7 @@ public class Move : MonoBehaviour
     //weapon
     public GameObject weapon;
 
-
+    private bool IngamePut;
     private float countAJ;
     private bool doublejump = false;
     private float supportForce;
@@ -39,9 +39,14 @@ public class Move : MonoBehaviour
 
     private Rigidbody2D rid2d;
     private Animator animator;
-    
+   
     private Ouros Ouros;
     
+    public void setIngamePut(bool i)
+    {
+        IngamePut = i;
+    }
+
     void Start()
     {
         doublieJumpSpeed = 80 * (jumpSpeed / 100);
@@ -49,24 +54,30 @@ public class Move : MonoBehaviour
         attackTimeCount = attackTime;
         rid2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        
         gravityStore = rid2d.gravityScale;
         Ouros = GetComponent<Ouros>();
+        IngamePut = true;
     }
 
     void Update()
-    {             
-        if (isOnLadder == true && isOnGround == false)
+    {   
+        if (IngamePut == true)
         {
-                
-        } else
-        {
-            Walk();
-            Jump();
-            Attack();
-        }
-        OurosUse();
-        Ladder();
+            if (isOnLadder == true && isOnGround == false)
+            {
+
+            }
+            else
+            {
+                Walk();
+                checkIdling();
+                Jump();
+                Attack();
+            }
+            OurosUse();
+            Ladder();
+        }      
+        
     }
 
     void FixedUpdate()
@@ -86,8 +97,8 @@ public class Move : MonoBehaviour
     public static int state_AirSlash = 4;//
     public static int state_GroundMagic = 5;//
     public static int state_AirMagic = 6;
-    public static int state_GroundThrust = 7;
-    public static int state_AirThrust = 8;
+    //public static int state_GroundThrust = 7;
+    //public static int state_AirThrust = 8;
     public static int state_Ladder = 9; //
     public static int state_Item = 10; //
 
@@ -141,14 +152,15 @@ public class Move : MonoBehaviour
             changeState(state_Idle);
             //smoothy stop
             float direction = Input.GetAxis("Horizontal");
-            if (Input.GetAxis("Horizontal") > 0)
+            if (Input.GetAxis("Horizontal") > 0 && jumping == false)
             {
                 rid2d.AddForce(new Vector2(speed * direction * smooth, rid2d.velocity.y));
             }
-            else if (Input.GetAxis("Horizontal") < 0)
+            else if (Input.GetAxis("Horizontal") < 0 && jumping == false)
             {
                 rid2d.AddForce(new Vector2(-speed * direction * smooth, rid2d.velocity.y));
             }
+
         }
         //move
         if (Input.GetAxisRaw("Horizontal") > 0)
@@ -158,7 +170,6 @@ public class Move : MonoBehaviour
             if (isOnSlope == true)
             {
                 transform.Translate(Vector3.right * speed * 4 * Time.deltaTime);
-                transform.Translate(Vector3.up * speed * 4 * Time.deltaTime);
             } else
             {
                 transform.Translate(Vector3.right * speed * Time.deltaTime);
@@ -173,7 +184,15 @@ public class Move : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
             gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
+            if (isOnSlope == true)
+            {
+                transform.Translate(Vector3.right * speed * 4 * Time.deltaTime);
+            }
+            else
+            {
+                transform.Translate(Vector3.right * speed * Time.deltaTime);
+            }
+
             if (GetComponent<SpriteRenderer>().flipX == false)
             {
                 GetComponent<SpriteRenderer>().flipX = true;
@@ -182,9 +201,28 @@ public class Move : MonoBehaviour
 
     }
 
-    void Jump()
+    void checkIdling()
     {
 
+        if (isOnGround == true && Input.GetButton("Horizontal") == false)
+        {
+            jumping = false;
+            changeState(state_Idle);
+        }
+        else if (isOnGround == false && Input.GetButton("Horizontal") == false)
+        {
+            changeState(state_Jump);
+        }
+        else if (isOnGround == true && Input.GetButton("Horizontal") == true)
+        {
+            jumping = false;
+            changeState(state_Walk);
+        }
+    }
+
+    void Jump()
+    {
+        
         if (isOnLadder == false)
         {
             if (Input.GetButtonDown("Jump"))

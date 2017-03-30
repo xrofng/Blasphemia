@@ -19,9 +19,9 @@ public class obstracle : MonoBehaviour {
         if (other.gameObject.tag == "Magic")
         {
          
-            if (other.gameObject.GetComponent<Magic>().magicName == "Dark Firaga")
+            if (other.gameObject.GetComponent<Magic>().magicName == "Dark Ignito")
             {
-             
+                Destroy(other.gameObject);
                 Destroy(gameObject);
             }
 

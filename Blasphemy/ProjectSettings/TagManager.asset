@@ -13,6 +13,10 @@ TagManager:
   - Magic
   - EnemyAttack
   - Enemy
+  - DialogueEvent
+  - Loot
+  - Door
+  - Switch
   layers:
   - Default
   - TransparentFX

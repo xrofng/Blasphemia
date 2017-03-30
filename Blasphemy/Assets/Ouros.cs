@@ -16,6 +16,12 @@ public class Ouros : MonoBehaviour
     public int ATK;
     public int DEF;
 
+    //pos
+    public float xAxis;
+    public float yAxis;
+    public float zAxis;
+
+
     //equipment
 
     //public Weapon weapon;
@@ -29,6 +35,7 @@ public class Ouros : MonoBehaviour
     public bool magicActive;
     private float magicTimeCount;
     private int magicLable = 1;
+    public int maxMagi=2;
     public Image cd;
     //public Item buffItem;
 
@@ -40,9 +47,28 @@ public class Ouros : MonoBehaviour
         moveScript = GetComponent<Move>();
         magicLable = 1;
     }
+    public void Save()
+    {
+        Debug.Log(Application.dataPath);
+        SaveLoadManager.SavePlayer(this);
+    }
 
+    public void Load()
+    {
+        int[] loadedStats = SaveLoadManager.LoadStats();
+
+        healthBar.value = loadedStats[0];
+        maxHP = loadedStats[1];
+        HP = loadedStats[2];
+        ATK = loadedStats[3];
+        DEF = loadedStats[4];
+
+        float[] loadedPos = SaveLoadManager.LoadPosition();
+        gameObject.transform.position = new Vector3(loadedPos[0], loadedPos[1], loadedPos[2]);
+    }
     void Update()
     {
+        updatePosition();
         cooldown_gauge();
         swapItem();
         use_Item();
@@ -52,7 +78,12 @@ public class Ouros : MonoBehaviour
         healthBar.value = HP;
         checkDie();
     }
-
+    void updatePosition()
+    {
+        xAxis = gameObject.transform.position.x;
+        yAxis = gameObject.transform.position.y;
+        zAxis = gameObject.transform.position.z;
+    }
     void checkDie()
     {
         if (this.HP <= 0)
@@ -86,7 +117,7 @@ public class Ouros : MonoBehaviour
             if (item.amount > 0)
             {
                 item.useItem();
-                item.amount -= 1;
+                
             }
             else
             {
@@ -126,12 +157,13 @@ public class Ouros : MonoBehaviour
     void swapMagic()
     {
         magic = magicList[magicLable];
-        if (Input.GetButtonDown("MagicChange"))
+        
+        if (Input.GetButtonDown("MagicChange") && maxMagi!=2)
         {
-            int maxMagic = magicList.Length;
+            
             if (Input.GetAxisRaw("MagicChange") == 1)
             {
-                if (magicLable + 1 == maxMagic)
+                if (magicLable + 1 == maxMagi)
                 {
                     magicLable = 1;
                 } else
@@ -144,7 +176,7 @@ public class Ouros : MonoBehaviour
             {
                 if (magicLable - 1 == 0)
                 {
-                    magicLable = maxMagic - 1;
+                    magicLable = maxMagi - 1;
                 } else
                 {
                     magicLable -= 1;
@@ -194,12 +226,25 @@ public class Ouros : MonoBehaviour
 
     }
 
+    void knockBack()
+    {
+        if (GetComponent<SpriteRenderer>().flipX == true)
+        {
+            transform.Translate(Vector3.right*0.2f);
+        }
+        else if (GetComponent<SpriteRenderer>().flipX == false)
+        {
+            transform.Translate(Vector3.left * 0.2f);
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D other) 
     {
         if (other.gameObject.tag == "EnemyAttack") //when got hit by enemy attack
         {
-            this.HP -= 30;
+            HP -= other.gameObject.GetComponent<Magic>().Dmg - this.DEF/ other.gameObject.GetComponent<Magic>().Dmg;
             other.GetComponent<selfDestruct>().destroyNow();
+            knockBack();
         }
         
         
@@ -210,7 +255,8 @@ public class Ouros : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")//when got hit by enemy body
         {
-            HP -= 30;
+            HP -= other.gameObject.GetComponent<EnemyAI>().ATK - this.DEF / other.gameObject.GetComponent<EnemyAI>().ATK;
+            knockBack();
         }
         else
         {

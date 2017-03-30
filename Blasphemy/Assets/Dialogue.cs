@@ -14,7 +14,7 @@ public class Dialogue : MonoBehaviour {
     private int num;
 
     public bool permit;
-    public Image textBox;
+    public GameObject textBox;
     private Text text;
     // Use this for initialization
 
@@ -28,11 +28,11 @@ public class Dialogue : MonoBehaviour {
         if(permit == true)
         {
             text.enabled = true;
-            textBox.enabled = true;
+            textBox.GetComponent<Image>().enabled = true;
         } else
         {
             text.enabled = false;
-            textBox.enabled = false;
+            textBox.GetComponent<Image>().enabled = false;
         }
     }
     void Start () {
@@ -49,8 +49,8 @@ public class Dialogue : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(permit == true) { }
-            if (started == false)  {
+
+        if (started == false)  {
             StartCoroutine(DisplayDialogue(dialogue[num]));
             started = true;
             num += 1;
@@ -60,6 +60,7 @@ public class Dialogue : MonoBehaviour {
     }
 
     private IEnumerator DisplayDialogue(string d){
+        
         text.text = "";
         int charCount = 0;
         while (charCount < d.Length){
@@ -86,6 +87,11 @@ public class Dialogue : MonoBehaviour {
         {
             if (Input.GetButtonDown("Return"))
             {
+                if (num == dialogue.Length -1)
+                {
+
+                    Destroy(textBox);
+                }
                 break;
             }
             yield return 0;

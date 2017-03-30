@@ -12,11 +12,12 @@ public class Item : MonoBehaviour {
     public bool isUsable;
     public int recoveryPoint;
     public int amount;
-    private Ouros Ouros;
+   
 
     public Magic magicGet;
-    public GameObject popup;
-    public string pickUpMessage;
+
+    private Ouros Ouros;
+    private D d;
 
     Item(string n, int p, string d, Sprite i, bool c, bool u,int a)
     {
@@ -27,31 +28,61 @@ public class Item : MonoBehaviour {
         isConsumable = c;
         isUsable = u;
         amount = a;
-        
     }
 
     // Usbool isUsable;e this for initialization
     void Start () {
         Ouros = FindObjectOfType<Ouros>();
+        d = FindObjectOfType<D>();
     }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
     void skillGet()
     {
-        if (this.itemName == "DarkFiraga")
+
+        for (int i=1;i< Ouros.magicList.Length; i++)
         {
-            for (int i=1;i< Ouros.magicList.Length; i++)
+            if (Ouros.magicList[i] == null)
             {
-                if (Ouros.magicList[i] == null)
-                {
-                    Ouros.magicList[i] = magicGet;
-                   
-                    return;
-                }                
-            }            
+                Ouros.magicList[i] = magicGet;
+                Ouros.maxMagi += 1;
+                return;
+            }                
+        }            
+        
+    }
+
+    void itemGet()
+    {
+        d.Opic = this.icon;
+        if (this.isConsumable == true)
+        {
+            d.Otex = this.itemName + " x " + this.amount;
+        }
+        else
+        {
+            d.Otex = this.itemName;
+        }
+
+        d.Obtain();
+        skillGet();
+        Item hand = Ouros.item;
+        for (int i = 1; i < Ouros.itemList.Length; i++)
+        {
+
+            if (Ouros.itemList[i].itemName == this.itemName)
+            {
+                Ouros.itemList[i].amount += this.amount;
+            }
+            Destroy(gameObject);
+            if (Ouros.GetComponent<Move>().isOnGround == true)
+            {
+                Ouros.GetComponent<Move>().isOnGround = true;
+            }
         }
     }
 
@@ -59,42 +90,32 @@ public class Item : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            skillGet();
-            Item hand = Ouros.item;
-            Debug.Log(hand.amount);
-            Debug.Log("get item");
-            for (int i=1; i< Ouros.itemList.Length; i++)
-            {
-                
-                if (Ouros.itemList[i].itemName == this.itemName)
-                {
-                    Ouros.itemList[i].amount += this.amount;
-                }
-                Destroy(gameObject);
-                if (Ouros.GetComponent<Move>().isOnGround == true)
-                {
-                    Ouros.GetComponent<Move>().isOnGround = true;
-                }
-                Debug.Log(hand.amount);
-            }
-           
+            itemGet();
         }
 
     }
 
     public void useItem()
     {           
-        Debug.Log("Item used");
-        Debug.Log(this.name);
         if (this.itemName == "Potion")
         {
             Ouros = FindObjectOfType<Ouros>();
-            Ouros.GetComponent<Ouros>().HP = Ouros.GetComponent<Ouros>().HP + 100;
+            if (Ouros.HP != Ouros.maxHP)
+            {
+                Ouros.GetComponent<Ouros>().HP = Ouros.GetComponent<Ouros>().HP + 100;
+                Ouros.item.amount -= 1;
+            }
         }
         if  (this.itemName == "Ether")
         {
             Ouros = FindObjectOfType<Ouros>();
-            Ouros.GetComponent<Ouros>().magic.charge += 5;
+            if (Ouros.magic.unLimit == false)
+            {
+                Ouros.GetComponent<Ouros>().magic.charge += 5;
+                Ouros.item.amount -= 1;
+            }
         }
+        
     }
+
 }
