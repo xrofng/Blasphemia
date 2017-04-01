@@ -41,6 +41,8 @@ public class Ouros : MonoBehaviour
 
     private Move moveScript;
 
+    private bool DebugModes;
+
     void Start()
     {
         healthBar.maxValue = maxHP;
@@ -66,8 +68,28 @@ public class Ouros : MonoBehaviour
         float[] loadedPos = SaveLoadManager.LoadPosition();
         gameObject.transform.position = new Vector3(loadedPos[0], loadedPos[1], loadedPos[2]);
     }
+
+    void DebugMode()
+    {
+        if (Input.GetButton("DebugMode"))
+        {
+            if (DebugModes == true)
+            {
+                DebugModes = false;
+            } else
+            {
+                DebugModes = true;
+            }
+        }
+        if (DebugModes == true)
+        {
+            HP = maxHP;
+        }
+    }
+
     void Update()
     {
+        DebugMode();
         updatePosition();
         cooldown_gauge();
         swapItem();
@@ -226,15 +248,15 @@ public class Ouros : MonoBehaviour
 
     }
 
-    void knockBack()
+    public void knockBack(float dis)
     {
         if (GetComponent<SpriteRenderer>().flipX == true)
         {
-            transform.Translate(Vector3.right*0.2f);
+            transform.Translate(Vector3.right* dis);
         }
         else if (GetComponent<SpriteRenderer>().flipX == false)
         {
-            transform.Translate(Vector3.left * 0.2f);
+            transform.Translate(Vector3.left * dis);
         }
     }
 
@@ -244,7 +266,7 @@ public class Ouros : MonoBehaviour
         {
             HP -= other.gameObject.GetComponent<Magic>().Dmg - this.DEF/ other.gameObject.GetComponent<Magic>().Dmg;
             other.GetComponent<selfDestruct>().destroyNow();
-            knockBack();
+            knockBack(0.2f);
         }
         
         
@@ -256,7 +278,7 @@ public class Ouros : MonoBehaviour
         if (other.gameObject.tag == "Enemy")//when got hit by enemy body
         {
             HP -= other.gameObject.GetComponent<EnemyAI>().ATK - this.DEF / other.gameObject.GetComponent<EnemyAI>().ATK;
-            knockBack();
+            knockBack(0.2f);
         }
         else
         {

@@ -177,6 +177,7 @@ public class Move : MonoBehaviour
 
             if (GetComponent<SpriteRenderer>().flipX == true)
             {
+                weapon.GetComponent< SpriteRenderer > ().flipX = false;
                 GetComponent<SpriteRenderer>().flipX = false;
             }
         }
@@ -195,6 +196,7 @@ public class Move : MonoBehaviour
 
             if (GetComponent<SpriteRenderer>().flipX == false)
             {
+                weapon.GetComponent<SpriteRenderer>().flipX = true;
                 GetComponent<SpriteRenderer>().flipX = true;
             }
         }
@@ -223,7 +225,7 @@ public class Move : MonoBehaviour
     void Jump()
     {
         
-        if (isOnLadder == false)
+        if (isOnLadder == false && isAttacking == false)
         {
             if (Input.GetButtonDown("Jump"))
             {
@@ -340,6 +342,7 @@ public class Move : MonoBehaviour
             {
                 
             }
+            Debug.Log("ASS");
             changeState(state_GroundSlash);
             isAttacking = true;
 
@@ -364,7 +367,7 @@ public class Move : MonoBehaviour
             {
                 isAttacking = false;
                 attackTimeCount = attackTime;
-                animator.SetInteger("isAttack", 0);
+               
             }
         }
 

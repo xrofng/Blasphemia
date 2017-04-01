@@ -17,6 +17,7 @@ TagManager:
   - Loot
   - Door
   - Switch
+  - Trap
   layers:
   - Default
   - TransparentFX

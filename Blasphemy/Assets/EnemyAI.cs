@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+    public string type;
     public int ATK;
     public int HP;
     public int DEF;
@@ -11,8 +12,8 @@ public class EnemyAI : MonoBehaviour
     //private Animator anime;
     [SerializeField]
     //private bool inSight = false;
-    private Collider2D copied;
-    private float init = 3.0f;
+    //private Collider2D copied;
+    private float walkDuration = 3.0f;
     public GameObject magic;
     public int direction = 1;
     private float delay = 3.0f;
@@ -24,11 +25,47 @@ public class EnemyAI : MonoBehaviour
     public bool inSight;
 
     private Ouros Ouros;
-    // Use this for initialization
+    // Use this for walkDurationialization
     void Start()
     {
         Ouros = FindObjectOfType<Ouros>();
-        direction = 1;
+        
+    }
+
+    void checkDie()
+    {
+        if (this.HP <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void EnemyAction()
+    {
+        if (type == "walkonly")
+        {
+            walk();
+        }
+        if (type == "shootCrap")
+        {
+            shootCrap();
+        }
+        if (type == "walkThenShoot")
+        {
+            walkAndShoot();
+        }
+        if (type == "Jumper")
+        {
+
+        }
+        if (type == "Dasher")
+        {
+
+        }
+        if (type == "")
+        {
+
+        }
     }
 
     void walk()
@@ -36,14 +73,14 @@ public class EnemyAI : MonoBehaviour
         if (direction==-1)
         {
             transform.Translate(Vector3.left * Time.deltaTime);
-            init -= Time.deltaTime;
+            walkDuration -= Time.deltaTime;
 
-            if(init<=0.0f)
+            if(walkDuration<=0.0f)
             {
                 
                 magicDel = -1;
-                shootCrap();
-                init = 3.0f;
+                
+                walkDuration = 3.0f;
                 direction = 1;
                 GetComponent<SpriteRenderer>().flipX = false;
                 //gameObject.transform.localScale = new Vector3(-gameObject.transform.localScale.x, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
@@ -52,14 +89,50 @@ public class EnemyAI : MonoBehaviour
         else if(direction==1)
         {
             transform.Translate(Vector3.right * Time.deltaTime);
-            init -= Time.deltaTime;
+            walkDuration -= Time.deltaTime;
 
-            if (init <= 0.0f)
+            if (walkDuration <= 0.0f)
             {
                 
                 magicDel = 1;
+                
+                walkDuration = 3.0f;
+                direction = -1;
+                GetComponent<SpriteRenderer>().flipX = true;
+                //gameObject.transform.localScale = new Vector3(-gameObject.transform.localScale.x, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+            }
+        }
+    }
+
+    void walkAndShoot()
+    {
+        if (direction == -1)
+        {
+            transform.Translate(Vector3.left * Time.deltaTime);
+            walkDuration -= Time.deltaTime;
+
+            if (walkDuration <= 0.0f)
+            {
+
+                magicDel = -1;
                 shootCrap();
-                init = 3.0f;
+                walkDuration = 3.0f;
+                direction = 1;
+                GetComponent<SpriteRenderer>().flipX = false;
+                //gameObject.transform.localScale = new Vector3(-gameObject.transform.localScale.x, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+            }
+        }
+        else if (direction == 1)
+        {
+            transform.Translate(Vector3.right * Time.deltaTime);
+            walkDuration -= Time.deltaTime;
+
+            if (walkDuration <= 0.0f)
+            {
+
+                magicDel = 1;
+                shootCrap();
+                walkDuration = 3.0f;
                 direction = -1;
                 GetComponent<SpriteRenderer>().flipX = true;
                 //gameObject.transform.localScale = new Vector3(-gameObject.transform.localScale.x, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
@@ -102,30 +175,14 @@ public class EnemyAI : MonoBehaviour
         inSight = false;
     }
 
-    //void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    if (other.gameObject.CompareTag("Player")) // "EnemyUnit"
-    //    {
-    //        inSight = true;
-    //        if(copied == null)
-    //        {
-    //            copied = other;
-    //        }
-    //    }
-    //}
-    //void OnTriggerExit2D(Collider2D other)
-    //{
-    //    inSight = false;
-    //    copied = null;
-    //}
-
-    // Update is called once per frame
+   
     void Update()
     {
         checkInsight();
+        checkDie();
         if (inSight == true)
         {
-            walk();
+            EnemyAction();
         }
         
     }
@@ -133,8 +190,10 @@ public class EnemyAI : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "PlayerWeapon")
-        {
-            Destroy(gameObject);
+        {                     
+            HP -= Ouros.ATK - this.DEF / Ouros.ATK;
+            
+            Debug.Log(this.HP);
         }
         else
         {

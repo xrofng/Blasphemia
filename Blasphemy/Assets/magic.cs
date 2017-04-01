@@ -29,6 +29,19 @@ public class Magic : MonoBehaviour
     {
         Dmg = d;
     }
+    public void setSpeed(float s)
+    {
+        speed = s;
+    }
+    public void setSelfDesTime(float sdt)
+    {
+        GetComponent<selfDestruct>().time = sdt;
+    }
+    public void setType(string t)
+    {
+        type = t;
+    }
+
     void Start()
     {
         Ouros = FindObjectOfType<Ouros>();
@@ -40,19 +53,28 @@ public class Magic : MonoBehaviour
         {
             projectile();
         }
+
     }
 
     void projectile()
-    {        
-        if (direction == 1)
+    {
+        if (direction == 2)
         {
-            GetComponent<SpriteRenderer>().flipX = false;
+            transform.Translate(0, -speed * Time.deltaTime, 0);
         }
-        else if (direction == -1)
+        else
         {
-            GetComponent<SpriteRenderer>().flipX = true;
+            if (direction == 1)
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
+            else if (direction == -1)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
+            transform.Translate(speed * Time.deltaTime * direction, 0, 0);
         }
-        transform.Translate(speed * Time.deltaTime * direction, 0, 0);
+        
     }
 }
     

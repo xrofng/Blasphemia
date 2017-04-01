@@ -40,7 +40,7 @@ public class D : MonoBehaviour {
             count = true;
             if (start == true)
             {
-                playDialogue();
+                playDialogue(other.GetComponent<DialogueSet>().No);
                 start = false;
                 Destroy(other.gameObject);
                 timeCount = 0f;
@@ -71,6 +71,11 @@ public class D : MonoBehaviour {
     public void playDialogue()
     {
         GameObject Dlog = Instantiate(DialogueList[sequence]) as GameObject;
+        Dlog.transform.SetParent(canvas.transform, false);
+    }
+    public void playDialogue(int no)
+    {
+        GameObject Dlog = Instantiate(DialogueList[no]) as GameObject;
         Dlog.transform.SetParent(canvas.transform, false);
     }
     public void Obtain()
