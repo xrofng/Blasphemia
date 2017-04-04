@@ -28,16 +28,19 @@ public class Pause : MonoBehaviour
         if (Input.GetButtonDown("Esc"))
         {
             choose = 1;
+            
             if (Time.timeScale == 1)
             {
                 pauScreen.GetComponent<Canvas>().enabled = true;
                 moveScript.setIngamePut(false);
+                paused = true;
                 Time.timeScale = 0;
             }
             else
             {
                 pauScreen.GetComponent<Canvas>().enabled = false;
                 moveScript.setIngamePut(true);
+                paused = false;
                 Time.timeScale = 1;
             }
         }
@@ -105,8 +108,12 @@ public class Pause : MonoBehaviour
     void Update ()
     {
         pausefnc();
-        toggle();
-        sword();
+        if (paused == true)
+        {
+            toggle();
+            sword();
+        }
+        
 
     }
 }

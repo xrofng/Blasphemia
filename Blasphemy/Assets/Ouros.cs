@@ -220,11 +220,11 @@ public class Ouros : MonoBehaviour
                 {
                     if (GetComponent<SpriteRenderer>().flipX == true)
                     {
-                        magic.setDirection(-1);
+                        magic.setDirection(Vector2.left);
                     }
                     else if (GetComponent<SpriteRenderer>().flipX == false)
                     {
-                        magic.setDirection(1);
+                        magic.setDirection(Vector2.right);
                     }
                     Instantiate(magic, gameObject.transform.position, gameObject.transform.rotation);
                 }
@@ -262,28 +262,34 @@ public class Ouros : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) 
     {
-        if (other.gameObject.tag == "EnemyAttack") //when got hit by enemy attack
+        if (other.gameObject.tag == "EnemyAttack") //when got hit by enemy attack // des it's magic
         {
             HP -= other.gameObject.GetComponent<Magic>().Dmg - this.DEF/ other.gameObject.GetComponent<Magic>().Dmg;
             other.GetComponent<selfDestruct>().destroyNow();
             knockBack(0.2f);
         }
-        
-        
+        if (other.gameObject.tag == "EnemyMeleeAttack") //when got hit by enemy melee attack // not dest
+        {
+            HP -= other.transform.parent.gameObject.GetComponent<EnemyAI>().ATK - this.DEF / other.transform.parent.gameObject.GetComponent<EnemyAI>().ATK;
+            other.GetComponent<BoxCollider2D>().enabled = false;
+            knockBack(0.2f);
+        }
+
+
 
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Enemy")//when got hit by enemy body
-        {
-            HP -= other.gameObject.GetComponent<EnemyAI>().ATK - this.DEF / other.gameObject.GetComponent<EnemyAI>().ATK;
-            knockBack(0.2f);
-        }
-        else
-        {
+        //if (other.gameObject.tag == "Enemy")//when got hit by enemy body
+        //{
+        //    HP -= other.gameObject.GetComponent<EnemyAI>().ATK - this.DEF / other.gameObject.GetComponent<EnemyAI>().ATK;
+        //    knockBack(0.2f);
+        //}
+        //else
+        //{
 
-        }
+        //}
     }
 }
 

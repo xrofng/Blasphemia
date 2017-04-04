@@ -11,7 +11,7 @@ public class Trap : MonoBehaviour
     public float speed;
     public float destructTime;
     public Transform spawnPoint;
-    public int direction;
+    public Vector2 direction;
     private bool doDMG;
     public GameObject obj;
 
@@ -63,18 +63,8 @@ public class Trap : MonoBehaviour
         obj.GetComponent<Magic>().setDamage(this.damage);
         obj.GetComponent<Magic>().setSpeed(this.speed);
         obj.GetComponent<Magic>().setSelfDesTime(this.destructTime);
-        if (direction == 0)
-        {
-            obj.GetComponent<Magic>().setDirection(2);
-        }
-        if (direction == 1)
-        {
-            obj.GetComponent<Magic>().setDirection(1);
-        }
-        if (direction == -1)
-        {
-            obj.GetComponent<Magic>().setDirection(-1);
-        }
+
+        obj.GetComponent<Magic>().setDirection(direction);
         Instantiate(obj, spawnPoint.transform.position, spawnPoint.transform.rotation);
         
     }
@@ -109,7 +99,6 @@ public class Trap : MonoBehaviour
             if (doDMG == true)
             {
                 Ouros.HP -= damage;
-                Ouros.knockBack(1);
                 doDMG = false;
             }
             

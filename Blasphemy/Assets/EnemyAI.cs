@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+    public string NAME;
     public string type;
     public int ATK;
     public int HP;
     public int DEF;
-    public float mySpeed = 2.55f;
+    public float mySpeed;
     //private Animator anime;
     [SerializeField]
     //private bool inSight = false;
@@ -16,20 +17,27 @@ public class EnemyAI : MonoBehaviour
     private float walkDuration = 3.0f;
     public GameObject magic;
     public int direction = 1;
-    private float delay = 3.0f;
+    private float timecount;
+    public float delay = 3.0f;
+    //ai Yo for create more AI
+    public float attackRange; //if out of this range mon will do range attack
+
+
     public Transform spawnPoint;
     private int magicDel = 0;
-
-    public float sight;
+    public float jumpspeed;
+    public float sightX;
     public float sightY;
     public bool inSight;
 
     private Ouros Ouros;
+    private Rigidbody2D rid2d;
     // Use this for walkDurationialization
     void Start()
     {
         Ouros = FindObjectOfType<Ouros>();
-        
+        rid2d = GetComponent<Rigidbody2D>();
+        timecount = 0;
     }
 
     void checkDie()
@@ -42,29 +50,78 @@ public class EnemyAI : MonoBehaviour
 
     void EnemyAction()
     {
-        if (type == "walkonly")
+        //if (type == "walkonly")
+        //{
+        //    walk();
+        //}
+        //if (type == "shootCrap")
+        //{
+        //    shootCrap();
+        //}
+        //if (type == "walkThenShoot")
+        //{
+        //    walkAndShoot();
+        //}
+        //if (type == "Jumper")
+        //{
+
+        //}
+        //if (type == "Dasher")
+        //{
+
+        //}
+        //if (type == "")
+        //{
+
+        //}/
+        facePlayer();
+        if (NAME == "Marlanx")
         {
-            walk();
+            transform.Translate(Vector3.right * direction * Time.deltaTime);
+            timecount += Time.deltaTime;
+            if (timecount > delay)
+            {
+                rid2d.AddForce(new Vector2(0, jumpspeed));
+                timecount = -1.5f;
+            }        
         }
-        if (type == "shootCrap")
+        if (NAME == "Duiston")
         {
-            shootCrap();
+            //Melee-just play animation
+            //Range-create Magic class with isTrigger 2dcollider rigidbody2d large snowball, hit do damage and destroy snowball
         }
-        if (type == "walkThenShoot")
+        if (NAME == "Tekar")
         {
-            walkAndShoot();
+            //Melee-create Magic class with isTrigger 2dcollider lava pool, if player step on it do damage overtime (create prefab of lava pool)
+            //Range-Target player Instantiate lava ball that float to player, then create 2 more that go furthur for fix distance
         }
-        if (type == "Jumper")
+        if (NAME == "Scynla")
+        {
+            //Target player Instantiate poison obj that float to player 3 time with delay time to time
+            //Find player position, instantiate poison rain above player, slowly move down to floor do aoe damage.
+            //create poison mist that has long length as fighting area. do damage over time.
+        }
+        if (NAME == "Warrir")
+        {
+            //create Magic class with isTrigger 2dcollider if IceShard in front of it
+            //
+        }
+        if(NAME == "Finik")
         {
 
         }
-        if (type == "Dasher")
-        {
+    }
 
-        }
-        if (type == "")
+    void facePlayer()
+    {
+        if (Ouros.GetComponent<Transform>().position.x < this.GetComponent<Transform>().position.x)
         {
-
+            direction = -1;
+            GetComponent<SpriteRenderer>().flipX = true;
+        } else if (Ouros.GetComponent<Transform>().position.x > this.GetComponent<Transform>().position.x)
+        {
+            direction = 1;
+            GetComponent<SpriteRenderer>().flipX = false;
         }
     }
 
@@ -145,13 +202,13 @@ public class EnemyAI : MonoBehaviour
         magic.GetComponent<Magic>().setDamage(this.ATK);
         if (magicDel==1)
         {
-            magic.GetComponent<Magic>().setDirection(1);
+            magic.GetComponent<Magic>().setDirection(Vector2.right);
             Instantiate(magic, spawnPoint.transform.position, spawnPoint.transform.rotation);
             
         }
         if (magicDel == -1)
         {
-            magic.GetComponent<Magic>().setDirection(-1);
+            magic.GetComponent<Magic>().setDirection(Vector2.left);
             Instantiate(magic, spawnPoint.transform.position, spawnPoint.transform.rotation);
         }
     }
@@ -162,9 +219,9 @@ public class EnemyAI : MonoBehaviour
         {
             if (Ouros.GetComponent<Transform>().position.y > this.GetComponent<Transform>().position.y - sightY)
             {
-                if (Ouros.GetComponent<Transform>().position.x > this.GetComponent<Transform>().position.x - sight)
+                if (Ouros.GetComponent<Transform>().position.x > this.GetComponent<Transform>().position.x - sightX)
                 {
-                    if (Ouros.GetComponent<Transform>().position.x < this.GetComponent<Transform>().position.x + sight)
+                    if (Ouros.GetComponent<Transform>().position.x < this.GetComponent<Transform>().position.x + sightX)
                     {
                         inSight = true;
                         return;

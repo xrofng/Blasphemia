@@ -9,7 +9,8 @@ public class Magic : MonoBehaviour
     public Sprite icon;
     public string type;
     public float speed;
-    public int direction;
+    public Vector2 direction;
+    
     public bool unLimit;
     public int charge;
 
@@ -17,11 +18,11 @@ public class Magic : MonoBehaviour
     
     private Ouros Ouros;
     // Update is called once per frame
-    Magic(int d)
+    Magic(Vector2 d)
     {
         direction = d;
     }
-    public void setDirection(int d)
+    public void setDirection(Vector2 d)
     {
         direction = d;
     }
@@ -58,22 +59,18 @@ public class Magic : MonoBehaviour
 
     void projectile()
     {
-        if (direction == 2)
+        
+        
+        if (direction.x == 1)
         {
-            transform.Translate(0, -speed * Time.deltaTime, 0);
+            GetComponent<SpriteRenderer>().flipX = false;
         }
-        else
+        else if (direction.x == -1)
         {
-            if (direction == 1)
-            {
-                GetComponent<SpriteRenderer>().flipX = false;
-            }
-            else if (direction == -1)
-            {
-                GetComponent<SpriteRenderer>().flipX = true;
-            }
-            transform.Translate(speed * Time.deltaTime * direction, 0, 0);
+            GetComponent<SpriteRenderer>().flipX = true;
         }
+        transform.Translate(direction.x* speed*Time.deltaTime, direction.y * speed * Time.deltaTime, 0);
+        
         
     }
 }
