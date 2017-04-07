@@ -73,6 +73,7 @@ public class Move : MonoBehaviour
                 checkIdling();
                 Jump();
                 Attack();
+                
             }
             OurosUse();
             Ladder();
@@ -146,6 +147,7 @@ public class Move : MonoBehaviour
             }
             
             speed = maxSpeed * Input.GetAxis("Horizontal");
+            weaponCollision(GetComponent<SpriteRenderer>().flipX);
         }
         if (Input.GetButtonUp("Horizontal"))
         {
@@ -178,7 +180,9 @@ public class Move : MonoBehaviour
             if (GetComponent<SpriteRenderer>().flipX == true)
             {
                 weapon.GetComponent< SpriteRenderer > ().flipX = false;
+                weaponCollision(false);
                 GetComponent<SpriteRenderer>().flipX = false;
+                
             }
         }
         else if (Input.GetAxisRaw("Horizontal") < 0)
@@ -197,9 +201,30 @@ public class Move : MonoBehaviour
             if (GetComponent<SpriteRenderer>().flipX == false)
             {
                 weapon.GetComponent<SpriteRenderer>().flipX = true;
+                weaponCollision(true);
                 GetComponent<SpriteRenderer>().flipX = true;
+               
             }
         }
+
+    }
+
+    void weaponCollision(bool flipX)
+    {
+        if (flipX == true)
+        {
+            if (weapon.GetComponent<BoxCollider2D>().offset.x > 0)
+            {
+                weapon.GetComponent<BoxCollider2D>().offset = new Vector2(-2f, weapon.GetComponent<BoxCollider2D>().offset.y);
+            }
+        } else if (flipX == false)
+        {
+            if (weapon.GetComponent<BoxCollider2D>().offset.x < 0)
+            {
+                weapon.GetComponent<BoxCollider2D>().offset = new Vector2(2f, weapon.GetComponent<BoxCollider2D>().offset.y);
+            }
+        }
+        
 
     }
 
@@ -304,7 +329,7 @@ public class Move : MonoBehaviour
             {
                 changeState(state_Ladder);
                 isOnGround = false;
-                Debug.Log("Ladder");
+               
                 rid2d.gravityScale = 0f;
                 climbVelo = climbSpeed * Input.GetAxisRaw("Vertical");
                 transform.Translate(Vector2.up * Time.deltaTime * climbVelo);
@@ -332,17 +357,9 @@ public class Move : MonoBehaviour
     void Attack()
     {
         if (Input.GetButtonDown("Attack") && isOnGround == true && animator.GetInteger("state") != 3 && isAttacking == false)
-        {
+        {       
+           
             
-            if (GetComponent<SpriteRenderer>().flipX == true)
-            {
-                
-            }
-            else
-            {
-                
-            }
-            Debug.Log("ASS");
             changeState(state_GroundSlash);
             isAttacking = true;
 
@@ -359,7 +376,7 @@ public class Move : MonoBehaviour
             }
             isAttacking = true;
         }
-
+       
         if (isAttacking == true)
         {
             attackTimeCount -= Time.deltaTime;

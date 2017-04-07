@@ -67,7 +67,7 @@ public class Dialogue : MonoBehaviour {
             text.text += d[charCount];
             charCount++;
             if (charCount < d.Length) {               
-                if (Input.GetButton("Return"))
+                if (Input.GetButton("Interact"))
                 {
                     yield return new WaitForSeconds(chrono * charRate);
                 }
@@ -85,7 +85,7 @@ public class Dialogue : MonoBehaviour {
 
         while (true)
         {
-            if (Input.GetButtonDown("Return"))
+            if (Input.GetButtonDown("Interact"))
             {
                 if (num == dialogue.Length -1)
                 {

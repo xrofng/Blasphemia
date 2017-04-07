@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     public int HP;
     public int DEF;
     public float mySpeed;
+    
     //private Animator anime;
     [SerializeField]
     //private bool inSight = false;
@@ -21,6 +22,8 @@ public class EnemyAI : MonoBehaviour
     public float delay = 3.0f;
     //ai Yo for create more AI
     public float attackRange; //if out of this range mon will do range attack
+    public float faceDelay;
+    private float faceCount;
 
 
     public Transform spawnPoint;
@@ -32,11 +35,28 @@ public class EnemyAI : MonoBehaviour
 
     private Ouros Ouros;
     private Rigidbody2D rid2d;
+    private Animator animator;
+
+
+    public int _currentAnimationState = 0;
+    public void changeState(int stateI)
+    {
+        if (_currentAnimationState == stateI)
+        {
+            return;
+        }
+        else
+        {
+            animator.SetInteger("state", stateI);
+            _currentAnimationState = stateI;
+        }
+    }
     // Use this for walkDurationialization
     void Start()
     {
         Ouros = FindObjectOfType<Ouros>();
         rid2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         timecount = 0;
     }
 
@@ -77,13 +97,18 @@ public class EnemyAI : MonoBehaviour
         facePlayer();
         if (NAME == "Marlanx")
         {
-            transform.Translate(Vector3.right * direction * Time.deltaTime);
+            transform.Translate(Vector3.right * direction *  mySpeed *Time.deltaTime);
             timecount += Time.deltaTime;
             if (timecount > delay)
             {
                 rid2d.AddForce(new Vector2(0, jumpspeed));
-                timecount = -1.5f;
-            }        
+                changeState(1);
+                GetComponentInChildren<BoxCollider2D>().enabled = true;
+                timecount = -1.8f;
+            } else if (timecount >= 0)
+            {
+                GetComponentInChildren<BoxCollider2D>().enabled = false;
+            }
         }
         if (NAME == "Duiston")
         {
@@ -114,15 +139,23 @@ public class EnemyAI : MonoBehaviour
 
     void facePlayer()
     {
-        if (Ouros.GetComponent<Transform>().position.x < this.GetComponent<Transform>().position.x)
+        faceCount += Time.deltaTime;
+        if (faceCount > faceDelay)
         {
-            direction = -1;
-            GetComponent<SpriteRenderer>().flipX = true;
-        } else if (Ouros.GetComponent<Transform>().position.x > this.GetComponent<Transform>().position.x)
-        {
-            direction = 1;
-            GetComponent<SpriteRenderer>().flipX = false;
+            
+            if (Ouros.GetComponent<Transform>().position.x < this.GetComponent<Transform>().position.x)
+            {
+                direction = -1;
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else if (Ouros.GetComponent<Transform>().position.x > this.GetComponent<Transform>().position.x)
+            {
+                direction = 1;
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
+            faceCount = 0;
         }
+
     }
 
     void walk()
@@ -170,7 +203,6 @@ public class EnemyAI : MonoBehaviour
 
             if (walkDuration <= 0.0f)
             {
-
                 magicDel = -1;
                 shootCrap();
                 walkDuration = 3.0f;
@@ -250,12 +282,11 @@ public class EnemyAI : MonoBehaviour
         {                     
             HP -= Ouros.ATK - this.DEF / Ouros.ATK;
             
-            Debug.Log(this.HP);
+            
         }
         else
         {
 
         }
-
     }
 }

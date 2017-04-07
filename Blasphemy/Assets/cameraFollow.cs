@@ -8,7 +8,7 @@ public class cameraFollow : MonoBehaviour
     [SerializeField]
     private float speed = 5.0f;
     public int limit;
-    public int above;
+    public float above;
     void Start()
     {
         Ouros = FindObjectOfType<Ouros>();

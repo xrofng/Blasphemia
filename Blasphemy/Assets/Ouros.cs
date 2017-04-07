@@ -37,6 +37,9 @@ public class Ouros : MonoBehaviour
     private int magicLable = 1;
     public int maxMagi=2;
     public Image cd;
+    public Image cdcircle;
+    public Sprite active;
+    public Sprite inactive;
     //public Item buffItem;
 
     private Move moveScript;
@@ -48,6 +51,10 @@ public class Ouros : MonoBehaviour
         healthBar.maxValue = maxHP;
         moveScript = GetComponent<Move>();
         magicLable = 1;
+        if (mainMenu.GameWillLoadSave == true)
+        {
+            Load();
+        }
     }
     public void Save()
     {
@@ -110,7 +117,7 @@ public class Ouros : MonoBehaviour
     {
         if (this.HP <= 0)
         {
-            SceneManager.LoadScene(0);
+            Load();
         }
     }
 
@@ -166,10 +173,12 @@ public class Ouros : MonoBehaviour
         if (magicActive == false)
         {
             cd.color = new Color(0.2F, 0.2F, 0.2F, 1.0F);
+            cdcircle.sprite = inactive;
 
         } else if (magicActive == true)
         {
             cd.color = new Color(1.0F, 1.0F, 1.0F, 1.0F);
+            cdcircle.sprite = active;
         } else
         {
 
@@ -268,11 +277,12 @@ public class Ouros : MonoBehaviour
             other.GetComponent<selfDestruct>().destroyNow();
             knockBack(0.2f);
         }
-        if (other.gameObject.tag == "EnemyMeleeAttack") //when got hit by enemy melee attack // not dest
+       else if (other.gameObject.tag == "EnemyMeleeAttack") //when got hit by enemy melee attack // not dest
         {
-            HP -= other.transform.parent.gameObject.GetComponent<EnemyAI>().ATK - this.DEF / other.transform.parent.gameObject.GetComponent<EnemyAI>().ATK;
-            other.GetComponent<BoxCollider2D>().enabled = false;
-            knockBack(0.2f);
+            
+        } else
+        {
+
         }
 
 

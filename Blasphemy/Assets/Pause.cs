@@ -82,7 +82,7 @@ public class Pause : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Attack"))
+        if (Input.GetButtonDown("Interact"))
         {
             enter();
         }
@@ -96,11 +96,11 @@ public class Pause : MonoBehaviour
             Time.timeScale = 1;
         } else if (choose == 2)
         {
-            Ouros.Save();
+            Ouros.Load();
         }
         else if (choose == 3)
         {
-            Ouros.Load();
+            
         }
         
     }
