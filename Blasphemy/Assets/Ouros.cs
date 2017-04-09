@@ -40,14 +40,23 @@ public class Ouros : MonoBehaviour
     public Image cdcircle;
     public Sprite active;
     public Sprite inactive;
+
+    public bool isInvisible;
+    private float invicount;
+    public float invitime;
+    public Color inviColor;
+    public Color normalColor;
+
     //public Item buffItem;
 
     private Move moveScript;
 
     private bool DebugModes;
+    
 
     void Start()
     {
+        isInvisible = false;
         healthBar.maxValue = maxHP;
         moveScript = GetComponent<Move>();
         magicLable = 1;
@@ -106,6 +115,7 @@ public class Ouros : MonoBehaviour
         use_Magic();
         healthBar.value = HP;
         checkDie();
+        blinking();
     }
     void updatePosition()
     {
@@ -251,9 +261,32 @@ public class Ouros : MonoBehaviour
             magicActive = true;
             magicTimeCount = 1;
         }
+    }
 
+    public void blinking()
+    {
+        if (isInvisible == true)
+        {
+            invicount += Time.deltaTime;
+            if (invicount > invitime)
+            {
+                invicount = 0;
+                isInvisible = false;
+                GetComponent<SpriteRenderer>().material.SetColor("_Color", normalColor);
+            }
+            if (GetComponent<SpriteRenderer>().material.color == normalColor)
+            {
+                GetComponent<SpriteRenderer>().material.SetColor("_Color", inviColor);
+            }
+            else if (GetComponent<SpriteRenderer>().material.color == inviColor)
+            {
+                GetComponent<SpriteRenderer>().material.SetColor("_Color", normalColor);
+            }
+        }
 
-
+            
+        
+       
 
     }
 
@@ -267,15 +300,20 @@ public class Ouros : MonoBehaviour
         {
             transform.Translate(Vector3.left * dis);
         }
+        isInvisible = true;
     }
 
     void OnTriggerEnter2D(Collider2D other) 
     {
         if (other.gameObject.tag == "EnemyAttack") //when got hit by enemy attack // des it's magic
         {
-            HP -= other.gameObject.GetComponent<Magic>().Dmg - this.DEF/ other.gameObject.GetComponent<Magic>().Dmg;
-            other.GetComponent<selfDestruct>().destroyNow();
-            knockBack(0.2f);
+            if (isInvisible == false)
+            {
+                HP -= other.gameObject.GetComponent<Magic>().Dmg - this.DEF / other.gameObject.GetComponent<Magic>().Dmg;
+                other.GetComponent<selfDestruct>().destroyNow();
+                knockBack(0.2f);
+            }
+           
         }
        else if (other.gameObject.tag == "EnemyMeleeAttack") //when got hit by enemy melee attack // not dest
         {
@@ -284,9 +322,6 @@ public class Ouros : MonoBehaviour
         {
 
         }
-
-
-
     }
 
     void OnCollisionEnter2D(Collision2D other)

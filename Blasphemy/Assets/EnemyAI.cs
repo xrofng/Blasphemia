@@ -36,7 +36,7 @@ public class EnemyAI : MonoBehaviour
     private Ouros Ouros;
     private Rigidbody2D rid2d;
     private Animator animator;
-
+    public BoxCollider2D meleeCollider;
 
     public int _currentAnimationState = 0;
     public void changeState(int stateI)
@@ -57,6 +57,7 @@ public class EnemyAI : MonoBehaviour
         Ouros = FindObjectOfType<Ouros>();
         rid2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        
         timecount = 0;
     }
 
@@ -103,11 +104,11 @@ public class EnemyAI : MonoBehaviour
             {
                 rid2d.AddForce(new Vector2(0, jumpspeed));
                 changeState(1);
-                GetComponentInChildren<BoxCollider2D>().enabled = true;
+                meleeCollider.enabled = true;
                 timecount = -1.8f;
             } else if (timecount >= 0)
             {
-                GetComponentInChildren<BoxCollider2D>().enabled = false;
+                meleeCollider.enabled = false;
             }
         }
         if (NAME == "Duiston")

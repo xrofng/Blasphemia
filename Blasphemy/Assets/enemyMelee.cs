@@ -22,10 +22,14 @@ public class enemyMelee : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player") //when got hit by enemy attack // des it's magic
         {
-            GetComponent<BoxCollider2D>().enabled = false;
-            Ouros.HP -= ATK - Ouros.DEF / ATK;
-            this.GetComponent<BoxCollider2D>().enabled = false;
-            Ouros.knockBack(1f);
+            if(Ouros.isInvisible == false)
+            {
+                GetComponent<BoxCollider2D>().enabled = false;
+                Ouros.HP -= ATK - Ouros.DEF / ATK;
+                this.GetComponent<BoxCollider2D>().enabled = false;
+                Ouros.knockBack(1f);
+            }
+            
         }
 
 

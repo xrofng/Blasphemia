@@ -19,6 +19,7 @@ TagManager:
   - Switch
   - Trap
   - EnemyMeleeAttack
+  - TeleportPoint
   layers:
   - Default
   - TransparentFX
