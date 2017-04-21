@@ -1,0 +1,482 @@
+fileFormatVersion: 2
+guid: 292bf5aad58e37a49b99944ad0d7110b
+timeCreated: 1492682473
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: sprite_slash_air_0
+    21300002: sprite_slash_air_1
+    21300004: sprite_slash_air_2
+    21300006: sprite_slash_air_3
+    21300008: sprite_slash_air_4
+    21300010: sprite_slash_air_5
+    21300012: sprite_slash_air_6
+    21300014: sprite_slash_air_7
+    21300016: sprite_slash_air_8
+    21300018: sprite_slash_air_9
+    21300020: sprite_slash_air_10
+    21300022: sprite_slash_air_11
+    21300024: sprite_slash_air_12
+    21300026: sprite_slash_air_13
+    21300028: sprite_slash_air_14
+    21300030: sprite_slash_air_15
+    21300032: sprite_slash_air_16
+    21300034: sprite_slash_air_17
+    21300036: sprite_slash_air_18
+    21300038: sprite_slash_air_19
+    21300040: sprite_slash_air_20
+    21300042: sprite_slash_air_21
+    21300044: sprite_slash_air_22
+    21300046: sprite_slash_air_23
+    21300048: sprite_slash_air_24
+    21300050: sprite_slash_air_25
+    21300052: sprite_slash_air_26
+    21300054: sprite_slash_air_27
+    21300056: sprite_slash_air_28
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sprite_slash_air_0
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 2546
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_1
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 1889
+        width: 485
+        height: 724
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_2
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 1849
+        width: 515
+        height: 644
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_3
+      rect:
+        serializedVersion: 2
+        x: 1329
+        y: 1876
+        width: 684
+        height: 573
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_4
+      rect:
+        serializedVersion: 2
+        x: 2057
+        y: 2258
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_5
+      rect:
+        serializedVersion: 2
+        x: 2089
+        y: 1840
+        width: 664
+        height: 630
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_6
+      rect:
+        serializedVersion: 2
+        x: 2845
+        y: 1815
+        width: 437
+        height: 681
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_7
+      rect:
+        serializedVersion: 2
+        x: 3398
+        y: 2143
+        width: 69
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_8
+      rect:
+        serializedVersion: 2
+        x: 3475
+        y: 2145
+        width: 61
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_9
+      rect:
+        serializedVersion: 2
+        x: 3537
+        y: 2145
+        width: 98
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_10
+      rect:
+        serializedVersion: 2
+        x: 3637
+        y: 2143
+        width: 69
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_11
+      rect:
+        serializedVersion: 2
+        x: 3715
+        y: 2145
+        width: 88
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_12
+      rect:
+        serializedVersion: 2
+        x: 3854
+        y: 2124
+        width: 44
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_13
+      rect:
+        serializedVersion: 2
+        x: 3894
+        y: 2145
+        width: 98
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_14
+      rect:
+        serializedVersion: 2
+        x: 3998
+        y: 2145
+        width: 26
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_15
+      rect:
+        serializedVersion: 2
+        x: 4040
+        y: 2145
+        width: 82
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_16
+      rect:
+        serializedVersion: 2
+        x: 4118
+        y: 2124
+        width: 42
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_17
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 2085
+        width: 22
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_18
+      rect:
+        serializedVersion: 2
+        x: 1317
+        y: 2082
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_19
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 1752
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_20
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 1066
+        width: 594
+        height: 766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_21
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 1034
+        width: 554
+        height: 674
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_22
+      rect:
+        serializedVersion: 2
+        x: 1394
+        y: 1064
+        width: 743
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_23
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 1068
+        width: 721
+        height: 680
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_24
+      rect:
+        serializedVersion: 2
+        x: 3262
+        y: 1060
+        width: 436
+        height: 682
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_25
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 161
+        width: 554
+        height: 675
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_26
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 190
+        width: 594
+        height: 766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_27
+      rect:
+        serializedVersion: 2
+        x: 1426
+        y: 180
+        width: 743
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_slash_air_28
+      rect:
+        serializedVersion: 2
+        x: 2310
+        y: 180
+        width: 720
+        height: 680
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,342 @@
+fileFormatVersion: 2
+guid: cd54d73e4e051a24ba3771d3259c692e
+timeCreated: 1492751766
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: caveset_0
+    21300002: caveset_1
+    21300004: caveset_2
+    21300006: caveset_3
+    21300008: caveset_4
+    21300010: caveset_5
+    21300012: caveset_6
+    21300014: caveset_7
+    21300016: caveset_8
+    21300018: caveset_9
+    21300020: caveset_10
+    21300022: caveset_11
+    21300024: caveset_12
+    21300026: caveset_13
+    21300028: caveset_14
+    21300030: caveset_15
+    21300032: caveset_16
+    21300034: caveset_17
+    21300036: caveset_18
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: caveset_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2574
+        width: 3012
+        height: 1626
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: caveset_1
+      rect:
+        serializedVersion: 2
+        x: 3289
+        y: 2739
+        width: 996
+        height: 1461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: caveset_2
+      rect:
+        serializedVersion: 2
+        x: 4506
+        y: 2671
+        width: 875
+        height: 1529
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: caveset_3
+      rect:
+        serializedVersion: 2
+        x: 5947
+        y: 2263
+        width: 1212
+        height: 1937
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: caveset_4
+      rect:
+        serializedVersion: 2
+        x: 7162
+        y: 4193
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: caveset_5
+      rect:
+        serializedVersion: 2
+        x: 7343
+        y: 3282
+        width: 1642
+        height: 918
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: caveset_6
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 1975
+        width: 363
+        height: 420
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: caveset_7
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 1947
+        width: 622
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: caveset_8
+      rect:
+        serializedVersion: 2
+        x: 2069
+        y: 1976
+        width: 646
+        height: 485
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: caveset_9
+      rect:
+        serializedVersion: 2
+        x: 3003
+        y: 1881
+        width: 1028
+        height: 608
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: caveset_10
+      rect:
+        serializedVersion: 2
+        x: 4159
+        y: 1725
+        width: 905
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: caveset_11
+      rect:
+        serializedVersion: 2
+        x: 5201
+        y: 1956
+        width: 321
+        height: 585
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: caveset_12
+      rect:
+        serializedVersion: 2
+        x: 5782
+        y: 1079
+        width: 717
+        height: 1004
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: caveset_13
+      rect:
+        serializedVersion: 2
+        x: 7164
+        y: 1664
+        width: 2498
+        height: 1368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: caveset_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2215
+        height: 1739
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: caveset_15
+      rect:
+        serializedVersion: 2
+        x: 2386
+        y: 0
+        width: 2838
+        height: 1673
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: caveset_16
+      rect:
+        serializedVersion: 2
+        x: 5720
+        y: 0
+        width: 845
+        height: 1035
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: caveset_17
+      rect:
+        serializedVersion: 2
+        x: 6952
+        y: 0
+        width: 1217
+        height: 1588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: caveset_18
+      rect:
+        serializedVersion: 2
+        x: 8160
+        y: 54
+        width: 1273
+        height: 1237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

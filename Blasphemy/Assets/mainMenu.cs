@@ -8,13 +8,13 @@ public class mainMenu : MonoBehaviour {
 
     private int choose;
     public RectTransform cursor;
-    private Ouros Ouros;
+    
     static public bool GameWillLoadSave;
 
 	// Use this for initialization
 	void Start () {
         choose = 1;
-        Ouros = FindObjectOfType<Ouros>();
+       
     }
 
   

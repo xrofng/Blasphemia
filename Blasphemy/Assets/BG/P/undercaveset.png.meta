@@ -1,0 +1,370 @@
+fileFormatVersion: 2
+guid: d25fbda7f9a165b4ab3423449dc9c943
+timeCreated: 1492752085
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: undercaveset_0
+    21300002: undercaveset_1
+    21300004: undercaveset_2
+    21300006: undercaveset_3
+    21300008: undercaveset_4
+    21300010: undercaveset_5
+    21300012: undercaveset_6
+    21300014: undercaveset_7
+    21300016: undercaveset_8
+    21300018: undercaveset_9
+    21300020: undercaveset_10
+    21300022: undercaveset_11
+    21300024: undercaveset_12
+    21300026: undercaveset_13
+    21300028: undercaveset_14
+    21300030: undercaveset_15
+    21300032: undercaveset_16
+    21300034: undercaveset_17
+    21300036: undercaveset_18
+    21300038: undercaveset_20
+    21300040: undercaveset_19
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: undercaveset_0
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 2786
+        width: 2447
+        height: 1229
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undercaveset_1
+      rect:
+        serializedVersion: 2
+        x: 3045
+        y: 2994
+        width: 1300
+        height: 1021
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undercaveset_2
+      rect:
+        serializedVersion: 2
+        x: 4473
+        y: 3019
+        width: 1086
+        height: 767
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undercaveset_3
+      rect:
+        serializedVersion: 2
+        x: 6021
+        y: 3609
+        width: 635
+        height: 558
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undercaveset_4
+      rect:
+        serializedVersion: 2
+        x: 7383
+        y: 3461
+        width: 497
+        height: 554
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undercaveset_5
+      rect:
+        serializedVersion: 2
+        x: 8139
+        y: 3289
+        width: 787
+        height: 766
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undercaveset_6
+      rect:
+        serializedVersion: 2
+        x: 5889
+        y: 2786
+        width: 1110
+        height: 685
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undercaveset_7
+      rect:
+        serializedVersion: 2
+        x: 7342
+        y: 2918
+        width: 299
+        height: 381
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undercaveset_8
+      rect:
+        serializedVersion: 2
+        x: 8048
+        y: 2649
+        width: 2354
+        height: 472
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undercaveset_9
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1649
+        width: 1127
+        height: 913
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undercaveset_10
+      rect:
+        serializedVersion: 2
+        x: 4640
+        y: 1545
+        width: 1394
+        height: 1206
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undercaveset_11
+      rect:
+        serializedVersion: 2
+        x: 7251
+        y: 2425
+        width: 182
+        height: 411
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undercaveset_12
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 465
+        width: 2960
+        height: 1781
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undercaveset_13
+      rect:
+        serializedVersion: 2
+        x: 6740
+        y: 1928
+        width: 947
+        height: 428
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undercaveset_14
+      rect:
+        serializedVersion: 2
+        x: 8155
+        y: 1897
+        width: 2247
+        height: 492
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undercaveset_15
+      rect:
+        serializedVersion: 2
+        x: 4706
+        y: 272
+        width: 1528
+        height: 1158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undercaveset_16
+      rect:
+        serializedVersion: 2
+        x: 7094
+        y: 1189
+        width: 511
+        height: 474
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undercaveset_17
+      rect:
+        serializedVersion: 2
+        x: 8180
+        y: 0
+        width: 2222
+        height: 1561
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undercaveset_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 119
+        width: 1425
+        height: 889
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undercaveset_20
+      rect:
+        serializedVersion: 2
+        x: 6956
+        y: 257
+        width: 874
+        height: 776
+      alignment: 9
+      pivot: {x: 0.44591632, y: 0.5680571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undercaveset_19
+      rect:
+        serializedVersion: 2
+        x: 6582
+        y: 748
+        width: 269
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

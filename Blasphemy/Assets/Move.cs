@@ -34,8 +34,15 @@ public class Move : MonoBehaviour
     private bool doublejump = false;
     private float supportForce;
     public bool isAttacking;
+    
     public float attackTime;
+    public float jattackTime;
     private float attackTimeCount;
+
+
+    //skill
+    private bool doubleJumpAbilities;
+    private bool cameraPeekAbilities;
 
     private Rigidbody2D rid2d;
     private Animator animator;
@@ -49,9 +56,11 @@ public class Move : MonoBehaviour
 
     void Start()
     {
+        doubleJumpAbilities = false;
+        cameraPeekAbilities = false;
         doublieJumpSpeed = 80 * (jumpSpeed / 100);
         maxSpeed = speed;
-        attackTimeCount = attackTime;
+        
         rid2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         gravityStore = rid2d.gravityScale;
@@ -113,6 +122,7 @@ public class Move : MonoBehaviour
         else
         {
             animator.SetInteger("state", stateI);
+            print(stateI);
             _currentAnimationState = stateI;
         }
     }
@@ -140,10 +150,23 @@ public class Move : MonoBehaviour
             //smoothy accel
             if (isOnGround == false)
             {
-                changeState(state_Jump);
+                if(isAttacking == true)
+                {
+                    
+                } else
+                {
+                    changeState(state_Jump);
+                }               
             } else
             {
-                changeState(state_Walk);
+                if (isAttacking == true)
+                {
+
+                }
+                else
+                {
+                    changeState(state_Walk);
+                }                
             }
             
             speed = maxSpeed * Input.GetAxis("Horizontal");
@@ -254,13 +277,11 @@ public class Move : MonoBehaviour
         {
             if (Input.GetButtonDown("Jump"))
             {
-                
                 changeState(state_Jump);
                 if (isOnGround == true || isOnSlope == true)
                 {
                     
-                    gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-                    gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+                    
                     countAJ = 0;
                     startCountTime = true;
 
@@ -281,10 +302,9 @@ public class Move : MonoBehaviour
                    
                 }
             }
-            if (Input.GetButtonDown("Jump") && isOnGround != true && doublejump == false && isOnSlope == false)
+            if (Input.GetButtonDown("Jump") && isOnGround != true && doublejump == false )
             {
-                gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-                gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+                
                 startCountTime = false;
                 if (countAJ > 0.44)
                 {
@@ -314,8 +334,7 @@ public class Move : MonoBehaviour
                 {
                     rid2d.AddForce(new Vector2(0f, supportForce));
                 }
-                doublejump = true;
-                print(supportForce);
+                doublejump = true;                
             }
         }
 
@@ -357,23 +376,14 @@ public class Move : MonoBehaviour
     void Attack()
     {
         if (Input.GetButtonDown("Attack") && isOnGround == true && animator.GetInteger("state") != 3 && isAttacking == false)
-        {       
-           
-            
+        {            
             changeState(state_GroundSlash);
+            attackTimeCount = attackTime;
             isAttacking = true;
-
         } else if (Input.GetButtonDown("Attack") && isOnGround == false && animator.GetInteger("state") != 3 && isAttacking == false)
         {
             changeState(state_AirSlash);
-            if (GetComponent<SpriteRenderer>().flipX == true)
-            {
-                
-            }
-            else
-            {
-                
-            }
+            attackTimeCount = jattackTime;
             isAttacking = true;
         }
        
@@ -382,8 +392,7 @@ public class Move : MonoBehaviour
             attackTimeCount -= Time.deltaTime;
             if (attackTimeCount < 0)
             {
-                isAttacking = false;
-                attackTimeCount = attackTime;
+                isAttacking = false;                
                
             }
         }
@@ -437,7 +446,7 @@ public class Move : MonoBehaviour
     {
         if (jumping == true)
         {
-            if (other.gameObject.tag == "Platform")
+            if (other.gameObject.tag == "Platform" || other.gameObject.tag == "Enemy")
             {
                 isOnGround = false;
                 countAJ = 0;
@@ -452,8 +461,6 @@ public class Move : MonoBehaviour
             countAJ = 0;
             startCountTime = true;
             isOnSlope = false;
-            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
     }

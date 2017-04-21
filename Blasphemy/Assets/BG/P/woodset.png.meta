@@ -1,0 +1,370 @@
+fileFormatVersion: 2
+guid: 7e9efbe1a7d02e84ea8a0b9ff40b8cf9
+timeCreated: 1492751927
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: woodset_0
+    21300002: woodset_1
+    21300004: woodset_2
+    21300006: woodset_3
+    21300008: woodset_4
+    21300010: woodset_5
+    21300012: woodset_6
+    21300014: woodset_7
+    21300016: woodset_8
+    21300018: woodset_9
+    21300020: woodset_10
+    21300022: woodset_11
+    21300024: woodset_12
+    21300026: woodset_13
+    21300028: woodset_14
+    21300030: woodset_15
+    21300032: woodset_16
+    21300034: woodset_17
+    21300036: woodset_18
+    21300038: woodset_19
+    21300040: woodset_20
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: woodset_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4703
+        width: 3092
+        height: 1074
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: woodset_1
+      rect:
+        serializedVersion: 2
+        x: 3104
+        y: 5110
+        width: 1462
+        height: 667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: woodset_2
+      rect:
+        serializedVersion: 2
+        x: 4554
+        y: 4878
+        width: 1759
+        height: 858
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: woodset_3
+      rect:
+        serializedVersion: 2
+        x: 6383
+        y: 4378
+        width: 1608
+        height: 1356
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: woodset_4
+      rect:
+        serializedVersion: 2
+        x: 8088
+        y: 4439
+        width: 884
+        height: 1338
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: woodset_5
+      rect:
+        serializedVersion: 2
+        x: 10163
+        y: 5412
+        width: 684
+        height: 365
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: woodset_6
+      rect:
+        serializedVersion: 2
+        x: 10952
+        y: 5110
+        width: 853
+        height: 667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: woodset_7
+      rect:
+        serializedVersion: 2
+        x: 11969
+        y: 5294
+        width: 372
+        height: 483
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: woodset_8
+      rect:
+        serializedVersion: 2
+        x: 4555
+        y: 3075
+        width: 1138
+        height: 1801
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: woodset_9
+      rect:
+        serializedVersion: 2
+        x: 9276
+        y: 4754
+        width: 780
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: woodset_10
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 3556
+        width: 1448
+        height: 1145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: woodset_11
+      rect:
+        serializedVersion: 2
+        x: 1813
+        y: 3703
+        width: 1332
+        height: 954
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: woodset_12
+      rect:
+        serializedVersion: 2
+        x: 6382
+        y: 3367
+        width: 1633
+        height: 877
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: woodset_13
+      rect:
+        serializedVersion: 2
+        x: 10014
+        y: 3879
+        width: 1590
+        height: 719
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: woodset_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1559
+        width: 4067
+        height: 2009
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: woodset_15
+      rect:
+        serializedVersion: 2
+        x: 4225
+        y: 1569
+        width: 2407
+        height: 1304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: woodset_16
+      rect:
+        serializedVersion: 2
+        x: 6723
+        y: 1569
+        width: 1197
+        height: 1542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: woodset_17
+      rect:
+        serializedVersion: 2
+        x: 8423
+        y: 1682
+        width: 4055
+        height: 2002
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: woodset_18
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 0
+        width: 666
+        height: 1039
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: woodset_19
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 145
+        width: 895
+        height: 894
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: woodset_20
+      rect:
+        serializedVersion: 2
+        x: 10239
+        y: 0
+        width: 2239
+        height: 1642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
