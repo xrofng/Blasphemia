@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
@@ -99,8 +100,11 @@ public class Pause : MonoBehaviour
             Ouros.Load();
         }
         else if (choose == 3)
-        {
-            
+        {            
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
+            pauScreen.GetComponent<Canvas>().enabled = false;
+            moveScript.setIngamePut(true);
+            Time.timeScale = 1;
         }
         
     }

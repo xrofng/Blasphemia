@@ -95,7 +95,7 @@ MonoBehaviour:
   isConsumable: 1
   isUsable: 1
   recoveryPoint: 100
-  amount: 0
+  amount: 98
   magicGet: {fileID: 0}
 --- !u!212 &212754414349678482
 SpriteRenderer:

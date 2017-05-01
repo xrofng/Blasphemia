@@ -40,19 +40,36 @@ public class Ouros : MonoBehaviour
     public Image cdcircle;
     public Sprite active;
     public Sprite inactive;
+    public GameObject PotionParticle;
 
+    public bool red=false;
     public bool isInvisible;
     private float invicount;
     public float invitime;
     public Color inviColor;
     public Color normalColor;
+    public Color damagedColor;
+
+
 
     //public Item buffItem;
 
     private Move moveScript;
 
     private bool DebugModes;
-    
+    //camera
+    public Transform cameraHolder;
+    public float CameraSpeed;
+    public CameraMovementType cameraMovementType;
+    bool moveCamera;
+    public enum CameraMovementType
+    {
+        Lerp,
+        MoveTowards,
+        AccelDecel,
+        Acceleration
+    }
+
 
     void Start()
     {
@@ -60,10 +77,26 @@ public class Ouros : MonoBehaviour
         healthBar.maxValue = maxHP;
         moveScript = GetComponent<Move>();
         magicLable = 1;
-        if (mainMenu.GameWillLoadSave == true)
+        if (mainMenu.GameWillLoadSave == true || gameOver.GameWillLoadSave == true)
         {
             Load();
         }
+        cameraHolder = Camera.main.transform.parent.transform;
+    }
+    void Update()
+    {
+        playerCamera();
+        DebugMode();
+        updatePosition();
+        cooldown_gauge();
+        swapItem();
+        use_Item();
+        passive_Magic();
+        swapMagic();
+        use_Magic();
+        healthBar.value = HP;
+        checkDie();
+        blinking();
     }
     public void Save()
     {
@@ -84,7 +117,46 @@ public class Ouros : MonoBehaviour
         float[] loadedPos = SaveLoadManager.LoadPosition();
         gameObject.transform.position = new Vector3(loadedPos[0], loadedPos[1], loadedPos[2]);
     }
+    void playerCamera()
+    {
+        float disFromCamera = Vector3.Distance(cameraHolder.position, transform.position);
+        bool isJumping = GetComponent<Move>().jumping;
+        if (disFromCamera > 2 && isJumping == false)
+        {
+            moveCamera = true;
+        }
+        else
+        {
+            if (disFromCamera < 0.1f)
+            {
+                moveCamera = false;
+            }
+        }
 
+        if (moveCamera)
+        {
+            CameraMovement();
+        }
+    }
+    void CameraMovement()
+    {
+        switch (cameraMovementType)
+        {
+            case CameraMovementType.Lerp:
+                cameraHolder.transform.position = Vector3.Lerp(cameraHolder.transform.position, transform.position, Time.deltaTime * CameraSpeed);
+                break;
+            case CameraMovementType.MoveTowards:
+                cameraHolder.transform.position = Vector3.MoveTowards(cameraHolder.transform.position, transform.position, Time.deltaTime * CameraSpeed);
+                break;
+            case CameraMovementType.AccelDecel:
+                cameraHolder.transform.position = Interpolation.AccelDecelInterpolation(cameraHolder.position, transform.position, Time.deltaTime * CameraSpeed);
+                break;
+            case CameraMovementType.Acceleration:
+                cameraHolder.transform.position = Interpolation.AccelerationInterpolation(cameraHolder.position, transform.position, Time.deltaTime * CameraSpeed, 1);
+                break;
+        }
+
+    }
     void DebugMode()
     {
         if (Input.GetButton("DebugMode"))
@@ -103,31 +175,26 @@ public class Ouros : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        DebugMode();
-        updatePosition();
-        cooldown_gauge();
-        swapItem();
-        use_Item();
-        passive_Magic();
-        swapMagic();
-        use_Magic();
-        healthBar.value = HP;
-        checkDie();
-        blinking();
-    }
+ 
     void updatePosition()
     {
         xAxis = gameObject.transform.position.x;
         yAxis = gameObject.transform.position.y;
         zAxis = gameObject.transform.position.z;
     }
+
     void checkDie()
     {
         if (this.HP <= 0)
         {
-            Load();
+
+            FadeZero fz = FindObjectOfType<FadeZero>();
+
+            fz.fadeOut();
+            if (fz.fadeFinish == true)
+            {
+                SceneManager.LoadScene(2, LoadSceneMode.Single);
+            }
         }
     }
 
@@ -156,7 +223,9 @@ public class Ouros : MonoBehaviour
             if (item.amount > 0)
             {
                 item.useItem();
-                
+                item.useItem();
+                GameObject PotionParc = Instantiate(PotionParticle) as GameObject;
+                PotionParc.transform.SetParent(moveScript.transform, false);
             }
             else
             {
@@ -267,31 +336,44 @@ public class Ouros : MonoBehaviour
     {
         if (isInvisible == true)
         {
+           
+            if (invicount > invitime-0.50 && red== false)
+            {
+                if (GetComponent<SpriteRenderer>().material.color == damagedColor)
+                {
+                    GetComponent<SpriteRenderer>().material.SetColor("_Color", normalColor);
+                    red = true;
+                }
+            }
             invicount += Time.deltaTime;
-            if (invicount > invitime)
+            if (red == true)
             {
-                invicount = 0;
-                isInvisible = false;
-                GetComponent<SpriteRenderer>().material.SetColor("_Color", normalColor);
-            }
-            if (GetComponent<SpriteRenderer>().material.color == normalColor)
-            {
-                GetComponent<SpriteRenderer>().material.SetColor("_Color", inviColor);
-            }
-            else if (GetComponent<SpriteRenderer>().material.color == inviColor)
-            {
-                GetComponent<SpriteRenderer>().material.SetColor("_Color", normalColor);
-            }
-        }
+                if (invicount > invitime)
+                {
+                    invicount = 0;
+                    red = false;
+                    isInvisible = false;
+                    GetComponent<SpriteRenderer>().material.SetColor("_Color", normalColor);
+                    return;
+                }
 
+                if (GetComponent<SpriteRenderer>().material.color == inviColor)
+                {
+                    GetComponent<SpriteRenderer>().material.SetColor("_Color", normalColor);
+                }
+                else if (GetComponent<SpriteRenderer>().material.color == normalColor)
+                {
+                    GetComponent<SpriteRenderer>().material.SetColor("_Color", inviColor);
+                }
+            }
             
-        
-       
-
+            
+        }           
     }
 
     public void knockBack(float dis)
     {
+        GetComponent<SpriteRenderer>().material.SetColor("_Color", damagedColor);
         if (GetComponent<SpriteRenderer>().flipX == true)
         {
             transform.Translate(Vector3.right* dis);
@@ -300,6 +382,7 @@ public class Ouros : MonoBehaviour
         {
             transform.Translate(Vector3.left * dis);
         }
+        
         isInvisible = true;
     }
 
@@ -326,15 +409,16 @@ public class Ouros : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        //if (other.gameObject.tag == "Enemy")//when got hit by enemy body
-        //{
-        //    HP -= other.gameObject.GetComponent<EnemyAI>().ATK - this.DEF / other.gameObject.GetComponent<EnemyAI>().ATK;
-        //    knockBack(0.2f);
-        //}
-        //else
-        //{
+        if (other.gameObject.tag == "EnemyAttack") //when got hit by enemy attack // des it's magic
+        {
+            if (isInvisible == false)
+            {
+                HP -= other.gameObject.GetComponent<Magic>().Dmg - this.DEF / other.gameObject.GetComponent<Magic>().Dmg;
+                other.gameObject.GetComponent<selfDestruct>().destroyNow();
+                knockBack(0.2f);
+            }
 
-        //}
+        }
     }
 }
 

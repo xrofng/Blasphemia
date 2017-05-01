@@ -279,8 +279,7 @@ public class Move : MonoBehaviour
             {
                 changeState(state_Jump);
                 if (isOnGround == true || isOnSlope == true)
-                {
-                    
+                {                   
                     
                     countAJ = 0;
                     startCountTime = true;
@@ -302,40 +301,44 @@ public class Move : MonoBehaviour
                    
                 }
             }
-            if (Input.GetButtonDown("Jump") && isOnGround != true && doublejump == false )
+            if (doubleJumpAbilities == true)
             {
-                
-                startCountTime = false;
-                if (countAJ > 0.44)
-                {
-                    float ajPercent = countAJ * (100 / 0.44f);
-                    supportForce = doublieJumpSpeed * (ajPercent / 100);
-                }
-                else if (countAJ < 0.44)
-                {
-                    float ajPercent = countAJ * (100 / 0.44f);
-                    supportForce = doublieJumpSpeed * (ajPercent / 100);
-                }
-                else
+                if (Input.GetButtonDown("Jump") && isOnGround != true && doublejump == false)
                 {
 
-                    supportForce = doublieJumpSpeed;
-                }
+                    startCountTime = false;
+                    if (countAJ > 0.44)
+                    {
+                        float ajPercent = countAJ * (100 / 0.44f);
+                        supportForce = doublieJumpSpeed * (ajPercent / 100);
+                    }
+                    else if (countAJ < 0.44)
+                    {
+                        float ajPercent = countAJ * (100 / 0.44f);
+                        supportForce = doublieJumpSpeed * (ajPercent / 100);
+                    }
+                    else
+                    {
 
-                if (Input.GetAxisRaw("Horizontal") > 0)
-                {
-                    rid2d.AddForce(new Vector2(jumpDistance, supportForce));
+                        supportForce = doublieJumpSpeed;
+                    }
+
+                    if (Input.GetAxisRaw("Horizontal") > 0)
+                    {
+                        rid2d.AddForce(new Vector2(jumpDistance, supportForce));
+                    }
+                    else if (Input.GetAxisRaw("Horizontal") < 0)
+                    {
+                        rid2d.AddForce(new Vector2(-jumpDistance, supportForce));
+                    }
+                    else
+                    {
+                        rid2d.AddForce(new Vector2(0f, supportForce));
+                    }
+                    doublejump = true;
                 }
-                else if (Input.GetAxisRaw("Horizontal") < 0)
-                {
-                    rid2d.AddForce(new Vector2(-jumpDistance, supportForce));
-                }
-                else
-                {
-                    rid2d.AddForce(new Vector2(0f, supportForce));
-                }
-                doublejump = true;                
             }
+           
         }
 
     }

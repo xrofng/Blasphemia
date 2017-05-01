@@ -53,14 +53,14 @@ public class Magic : MonoBehaviour
         if (type == "projectile")
         {
             projectile();
+        } else if (type == "physic")
+        {
+            physic();
         }
 
     }
-
-    void projectile()
+    void physic()
     {
-        
-        
         if (direction.x == 1)
         {
             GetComponent<SpriteRenderer>().flipX = false;
@@ -69,9 +69,30 @@ public class Magic : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().flipX = true;
         }
-        transform.Translate(direction.x* speed*Time.deltaTime, direction.y * speed * Time.deltaTime, 0);
+        transform.Translate(direction.x * speed * Time.deltaTime, direction.y * speed * Time.deltaTime, 0);
         
-        
+    }
+    void projectile()
+    {
+        if (direction.y == 1)
+        {
+            GetComponent<SpriteRenderer>().flipY = false;
+        }
+        else if (direction.y == -1)
+        {
+            GetComponent<SpriteRenderer>().flipY = true;
+        }
+        transform.Translate(direction.x * speed * Time.deltaTime, direction.y * speed * Time.deltaTime, 0);
+        if (direction.x == 1)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else if (direction.x == -1)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+        transform.Translate(direction.x* speed*Time.deltaTime, direction.y * speed * Time.deltaTime, 0);       
+
     }
 }
     

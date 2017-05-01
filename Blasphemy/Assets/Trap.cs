@@ -49,6 +49,10 @@ public class Trap : MonoBehaviour
         {
             shootTrap();
         }
+        if (type == "physic")//speed damage direction spawnPoint destructTime
+        {
+            physicTrap();
+        }
         if (type == "floor")
         {
             floor();
@@ -56,14 +60,22 @@ public class Trap : MonoBehaviour
         timecount = 0;
     }
 
-    void shootTrap()
+    void physicTrap()
     {
-        
+        obj.GetComponent<Magic>().setType("physic");
+        obj.GetComponent<Magic>().setDamage(this.damage);
+        obj.GetComponent<Magic>().setSpeed(this.speed);
+        obj.GetComponent<Magic>().setSelfDesTime(this.destructTime);
+        obj.GetComponent<Magic>().setDirection(direction);
+        Instantiate(obj, spawnPoint.transform.position, spawnPoint.transform.rotation);
+    }
+
+    void shootTrap()
+    {        
         obj.GetComponent<Magic>().setType("projectile");
         obj.GetComponent<Magic>().setDamage(this.damage);
         obj.GetComponent<Magic>().setSpeed(this.speed);
         obj.GetComponent<Magic>().setSelfDesTime(this.destructTime);
-
         obj.GetComponent<Magic>().setDirection(direction);
         Instantiate(obj, spawnPoint.transform.position, spawnPoint.transform.rotation);
         

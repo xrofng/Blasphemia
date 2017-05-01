@@ -28,7 +28,6 @@ public class FloatingPlatform : MonoBehaviour {
             {
                 direction = new Vector2(direction.x * -1, direction.y * -1);
                 timecount = 0;
-
             }
             transform.Translate(new Vector3(direction.x, direction.y, 0f) * speed * Time.deltaTime);
             if (playerOn == true)

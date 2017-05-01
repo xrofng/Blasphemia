@@ -24,11 +24,11 @@ public class mainMenu : MonoBehaviour {
         float x = -70f;
         if (choose == 1)
         {
-            cursor.localPosition = new Vector3(0, x, 0);
+            cursor.localPosition = new Vector3(0, -130, 0);
         }
         else if (choose == 2)
         {
-            cursor.localPosition = new Vector3(0, x-20, 0);
+            cursor.localPosition = new Vector3(0, -173, 0);
         }
     }
     void toggle()
