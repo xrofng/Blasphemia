@@ -119,6 +119,7 @@ public class Ouros : MonoBehaviour
     }
     void playerCamera()
     {
+        
         float disFromCamera = Vector3.Distance(cameraHolder.position, transform.position);
         bool isJumping = GetComponent<Move>().jumping;
         if (disFromCamera > 2 && isJumping == false)
@@ -140,8 +141,10 @@ public class Ouros : MonoBehaviour
     }
     void CameraMovement()
     {
+        Vector3 camAbocve = new Vector3(transform.position.x, transform.position.y + 2.5f, transform.position.z);
         switch (cameraMovementType)
         {
+            
             case CameraMovementType.Lerp:
                 cameraHolder.transform.position = Vector3.Lerp(cameraHolder.transform.position, transform.position, Time.deltaTime * CameraSpeed);
                 break;
@@ -149,10 +152,10 @@ public class Ouros : MonoBehaviour
                 cameraHolder.transform.position = Vector3.MoveTowards(cameraHolder.transform.position, transform.position, Time.deltaTime * CameraSpeed);
                 break;
             case CameraMovementType.AccelDecel:
-                cameraHolder.transform.position = Interpolation.AccelDecelInterpolation(cameraHolder.position, transform.position, Time.deltaTime * CameraSpeed);
+                cameraHolder.transform.position = Interpolation.AccelDecelInterpolation(cameraHolder.position, camAbocve, Time.deltaTime * CameraSpeed);
                 break;
             case CameraMovementType.Acceleration:
-                cameraHolder.transform.position = Interpolation.AccelerationInterpolation(cameraHolder.position, transform.position, Time.deltaTime * CameraSpeed, 1);
+                cameraHolder.transform.position = Interpolation.AccelerationInterpolation(cameraHolder.position, camAbocve, Time.deltaTime * CameraSpeed, 1);
                 break;
         }
 

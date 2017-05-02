@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class FadeZero : MonoBehaviour {
-    private Ouros Ouros;
+ 
     public Color blackColor;
     public bool fadedIn;
     public bool fadedOut;
@@ -15,7 +15,7 @@ public class FadeZero : MonoBehaviour {
     public bool fadeFinish;
     // Use this for initialization
     void Start () {
-        Ouros = FindObjectOfType<Ouros>();
+ 
         isFading = false;
         fadeFinish = false;
     }

@@ -181,6 +181,8 @@ public class harambeAI : MonoBehaviour
         Ouros = FindObjectOfType<Ouros>();
         rid2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        meleeCollider.GetComponent<enemyMelee>().ATK = this.ATK;
+        
     }
 	
 	// Update is called once per frame

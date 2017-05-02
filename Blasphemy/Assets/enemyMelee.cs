@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class enemyMelee : MonoBehaviour {
 
-    private int ATK;
+    public int ATK;
     private Ouros Ouros;
 
     // Use this for initialization
     void Start () {
-        ATK = this.transform.parent.gameObject.GetComponent<EnemyAI>().ATK;
+        //ATK = this.transform.parent.gameObject.GetComponent<EnemyAI>().ATK;
         Ouros = FindObjectOfType<Ouros>();
     }
 	

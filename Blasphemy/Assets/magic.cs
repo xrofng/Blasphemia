@@ -16,7 +16,7 @@ public class Magic : MonoBehaviour
 
     public int Dmg;
     
-    private Ouros Ouros;
+
     // Update is called once per frame
     Magic(Vector2 d)
     {
@@ -45,7 +45,7 @@ public class Magic : MonoBehaviour
 
     void Start()
     {
-        Ouros = FindObjectOfType<Ouros>();
+
     }
 
     void Update()

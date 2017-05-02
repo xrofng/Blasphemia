@@ -78,6 +78,7 @@ public class Move : MonoBehaviour
             }
             else
             {
+               
                 Walk();
                 checkIdling();
                 Jump();
@@ -410,7 +411,7 @@ public class Move : MonoBehaviour
         }
         if (Input.GetButtonDown("Item") && isOnGround == true)
         {
-            changeState(state_Item);
+            
 
         }
     }

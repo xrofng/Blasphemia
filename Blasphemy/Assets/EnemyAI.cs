@@ -57,7 +57,7 @@ public class EnemyAI : MonoBehaviour
         Ouros = FindObjectOfType<Ouros>();
         rid2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        
+        meleeCollider.GetComponent<enemyMelee>().ATK = this.ATK;
         timecount = 0;
     }
 
