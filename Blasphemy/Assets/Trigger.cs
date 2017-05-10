@@ -23,9 +23,13 @@ public class Trigger : MonoBehaviour {
     private bool start;
     public float delay;
     private float timmcount;
+	public bool yetLaew;
 
     void Start()
     {
+		if (yetLaew == true){
+			Destroy(gameObject);
+		}
         start = false;
         timmcount = 0.0f;
         d = FindObjectOfType<D>();
@@ -65,7 +69,10 @@ public class Trigger : MonoBehaviour {
     }
 
 	// Use this for initialization
-	
+	public void setYetlaew(bool y)
+	{
+		yetLaew = y;
+	}
 	int getNo()
     {
         return No;
@@ -78,6 +85,7 @@ public class Trigger : MonoBehaviour {
             if (timmcount > delay)
             {
                 checkType();
+				yetLaew = true;
                 Destroy(gameObject);
             }
         }
