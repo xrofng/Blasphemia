@@ -12,7 +12,7 @@ public class Item : MonoBehaviour {
     public bool isUsable;
     public int recoveryPoint;
     public int amount;
-   
+    public bool key;
 
     public Magic magicGet;
 
@@ -71,18 +71,35 @@ public class Item : MonoBehaviour {
         d.Obtain();
         skillGet();
         Item hand = Ouros.item;
-        for (int i = 1; i < Ouros.itemList.Length; i++)
+        if (this.key == false)
         {
+            for (int i = 1; i < Ouros.itemList.Length; i++)
+            {
 
-            if (Ouros.itemList[i].itemName == this.itemName)
-            {
-                Ouros.itemList[i].amount += this.amount;
+                if (Ouros.itemList[i].itemName == this.itemName)
+                {
+                    Ouros.itemList[i].amount += this.amount;
+                }
+                Destroy(gameObject);
+                if (Ouros.GetComponent<Move>().isOnGround == true)
+                {
+                    Ouros.GetComponent<Move>().isOnGround = true;
+                }
             }
-            Destroy(gameObject);
-            if (Ouros.GetComponent<Move>().isOnGround == true)
-            {
-                Ouros.GetComponent<Move>().isOnGround = true;
-            }
+        }else
+        {
+            keyItem();
+        }
+       
+    }
+
+    void keyItem()
+    {
+        if (this.itemName == "Spear")
+        {
+            Variable v = FindObjectOfType<Variable>();
+            v.var_spear += 1;
+            Destroy(this.gameObject);
         }
     }
 
@@ -102,7 +119,15 @@ public class Item : MonoBehaviour {
             Ouros = FindObjectOfType<Ouros>();
             if (Ouros.HP != Ouros.maxHP)
             {
-                Ouros.GetComponent<Ouros>().HP = Ouros.GetComponent<Ouros>().HP + 100;
+                if  (Ouros.HP + 100 > Ouros.maxHP)
+                {
+                    Ouros.HP  = Ouros.maxHP;
+                }
+                else
+                {
+                    Ouros.HP += 100;
+                }
+              
                 Ouros.item.amount -= 1;
             }
         }

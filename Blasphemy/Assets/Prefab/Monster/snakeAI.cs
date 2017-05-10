@@ -32,6 +32,17 @@ public class snakeAI : MonoBehaviour
     private float faceCount;
     public int direction = 1;
 
+    public bool red = false;
+    public bool isInvisible;
+    public bool isDead;
+    public float deadCount;
+    public float deadTime;
+    private float invicount;
+    public float invitime;
+    public Color inviColor;
+    public Color normalColor;
+    public Color damagedColor;
+
     public int _currentAnimationState = 0;
     public void changeState(int stateI)
     {
@@ -138,20 +149,85 @@ public class snakeAI : MonoBehaviour
         }
     }
 
+   
+    public void blinking()
+    {
+        if (isInvisible == true)
+        {
+
+            if (invicount > invitime - (invitime*80 / 100) && red == false)
+            {
+                if (GetComponent<SpriteRenderer>().material.color == damagedColor)
+                {
+                    GetComponent<SpriteRenderer>().material.SetColor("_Color", normalColor);
+                    red = true;
+                }
+            }
+            invicount += Time.deltaTime;
+            if (red == true)
+            {
+                if (invicount > invitime)
+                {
+                    invicount = 0;
+                    red = false;
+                    isInvisible = false;
+                    GetComponent<SpriteRenderer>().material.SetColor("_Color", normalColor);
+                    return;
+                }
+
+                if (GetComponent<SpriteRenderer>().material.color == inviColor)
+                {
+                    GetComponent<SpriteRenderer>().material.SetColor("_Color", normalColor);
+                }
+                else if (GetComponent<SpriteRenderer>().material.color == normalColor)
+                {
+                    GetComponent<SpriteRenderer>().material.SetColor("_Color", inviColor);
+                }
+            }
+
+
+        }
+    }
+    public void knockBack(float dis)
+    {
+        GetComponent<SpriteRenderer>().material.SetColor("_Color", damagedColor);
+        if (GetComponent<SpriteRenderer>().flipX == true)
+        {
+            // this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.right * dis);
+            transform.Translate(Vector3.right * dis);
+        }
+        else if (GetComponent<SpriteRenderer>().flipX == false)
+        {
+            // this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.left * dis);
+            transform.Translate(Vector3.left * dis);
+        }
+
+        isInvisible = true;
+    }
     void checkDie()
     {
         if (this.HP <= 0)
         {
-            Destroy(gameObject);
+            isDead = true;
         }
     }
-
+    void die()
+    {
+        if (isDead == true)
+        {
+            deadCount += Time.deltaTime;
+            if (deadCount > deadTime)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "PlayerWeapon")
         {
             HP -= Ouros.ATK - this.DEF / Ouros.ATK;
-
+            knockBack(0.0f);
 
         }
         else
@@ -165,6 +241,8 @@ public class snakeAI : MonoBehaviour
     {
         checkInsight();
         checkDie();
+        die();
+        blinking();
         if (inSight == true)
         {
             EnemyAction();

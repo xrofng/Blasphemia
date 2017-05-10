@@ -39,13 +39,26 @@ public class FadeZero : MonoBehaviour {
             {
                 fadeFinish = true;
             }
+        }else if (fadedOut != true & fadedIn != true)
+        {
+            
+                fadeFinish = true;
+            Debug.Log(fadeFinish);
         }
 	}
-
+    public void startnewFade()
+    {
+        if (fadeFinish == true)
+        {
+            fadeFinish = false;
+            isFading = false;
+        }
+    }
     public void fadeIn()
     {
         if (isFading == false)
         {
+            Debug.Log("sasas");
             isFading = true;
             fadedOut = false;
             fadedIn = true;
@@ -62,7 +75,7 @@ public class FadeZero : MonoBehaviour {
         if (isFading == false)
         {
             isFading = true;
-            Debug.Log(black.color);
+            
             fadedIn = false;
             fadedOut = true;
             black.enabled = true;
@@ -71,5 +84,14 @@ public class FadeZero : MonoBehaviour {
         }
         
        
+    }
+    public void setVlack()
+    {
+        isFading = true;
+        fadedOut = false;
+        fadedIn = false;
+        black.enabled = true;
+        alpha = 1.0F;
+        black.color = new Color(0.0F, 0.0F, 0.0F, alpha);
     }
 }

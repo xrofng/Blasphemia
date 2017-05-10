@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 212719848258863032}
   - component: {fileID: 61063075764081524}
   m_Layer: 0
-  m_Name: F
+  m_Name: Floor
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 212903575381344444}
   - component: {fileID: 61873049864876792}
   m_Layer: 0
-  m_Name: U
+  m_Name: Up
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 212347459894918680}
   - component: {fileID: 61037200841436236}
   m_Layer: 0
-  m_Name: R
+  m_Name: Right
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 212813930990281114}
   - component: {fileID: 61517059532237918}
   m_Layer: 0
-  m_Name: D
+  m_Name: Down
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 212375736165935488}
   - component: {fileID: 61703145003761730}
   m_Layer: 0
-  m_Name: L
+  m_Name: Left
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

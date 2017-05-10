@@ -60,6 +60,7 @@ public class Ouros : MonoBehaviour
     //camera
     public Transform cameraHolder;
     public float CameraSpeed;
+    public float deCameraSpeed;
     public CameraMovementType cameraMovementType;
     bool moveCamera;
     public enum CameraMovementType
@@ -73,6 +74,7 @@ public class Ouros : MonoBehaviour
 
     void Start()
     {
+        deCameraSpeed = CameraSpeed;
         isInvisible = false;
         healthBar.maxValue = maxHP;
         moveScript = GetComponent<Move>();
@@ -379,13 +381,14 @@ public class Ouros : MonoBehaviour
         GetComponent<SpriteRenderer>().material.SetColor("_Color", damagedColor);
         if (GetComponent<SpriteRenderer>().flipX == true)
         {
+            //this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.right * dis);
             transform.Translate(Vector3.right* dis);
         }
         else if (GetComponent<SpriteRenderer>().flipX == false)
         {
+           // this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.left * dis);
             transform.Translate(Vector3.left * dis);
-        }
-        
+        }        
         isInvisible = true;
     }
 
@@ -418,12 +421,9 @@ public class Ouros : MonoBehaviour
             {
                 HP -= other.gameObject.GetComponent<Magic>().Dmg - this.DEF / other.gameObject.GetComponent<Magic>().Dmg;
                 other.gameObject.GetComponent<selfDestruct>().destroyNow();
-                knockBack(0.2f);
+                knockBack(1.2f);
             }
 
         }
     }
 }
-
-       
-   

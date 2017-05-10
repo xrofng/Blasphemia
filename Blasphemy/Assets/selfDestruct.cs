@@ -6,6 +6,8 @@ public class selfDestruct : MonoBehaviour {
 
     public float time;
     private float count;
+    public bool isParticle;
+ 
 
 	// Use this for initialization
 	void Start () {
@@ -16,13 +18,29 @@ public class selfDestruct : MonoBehaviour {
         count += Time.deltaTime;
         if (count > time)
         {
-            Destroy(gameObject);
+            if (isParticle == true)
+            {
+                this.gameObject.GetComponent<ParticleSystem>().Stop();               
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+           
+        }
+        if (count > time+4.0f && isParticle == true)
+        {
+           
+                Destroy(gameObject);
+            
+
         }
     }
 	// Update is called once per frame
 	void Update () {
+        
         timer();
-	}
+    }
 
     public void destroyNow()
     {

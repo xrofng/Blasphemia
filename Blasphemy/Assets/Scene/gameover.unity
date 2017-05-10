@@ -366,7 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -455,7 +455,7 @@ RectTransform:
   m_GameObject: {fileID: 1494912988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7.077701, y: 0.6885694, z: 1}
+  m_LocalScale: {x: 124.924835, y: 0.6885694, z: 1}
   m_Children: []
   m_Father: {fileID: 880428268}
   m_RootOrder: 1

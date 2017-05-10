@@ -103,17 +103,44 @@ public class Trap : MonoBehaviour
         inSight = false;
     }
 
-    void OnTriggerStay2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         
         if (other.gameObject.tag == "Player")
         {
             if (doDMG == true)
             {
-                Ouros.HP -= damage;
-                doDMG = false;
+                if(Ouros.isInvisible == false)
+                {
+                    Ouros.HP -= damage;
+                    Ouros.knockBack(1.0f);
+                    doDMG = false;
+                }
+               
             }
             
+        }
+    }
+    void OnTriggerStay2D(Collider2D other)
+    {
+
+        if (other.gameObject.tag == "Player")
+        {
+            if (this.type == "floor")
+            {
+                if (doDMG == true)
+                {
+                    if (Ouros.isInvisible == false)
+                    {
+                        Ouros.HP -= damage;
+                        Ouros.knockBack(1.0f);
+                        doDMG = false;
+                    }
+
+                }
+            }
+            
+
         }
     }
 

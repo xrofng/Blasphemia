@@ -1,0 +1,230 @@
+fileFormatVersion: 2
+guid: 5171acb33fc8e91469f9b72d219f8285
+timeCreated: 1493897613
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Marl_Jamp_sprite3_6
+    21300002: Marl_Jamp_sprite3_7
+    21300004: Marl_Jamp_sprite3_9
+    21300006: Marl_Jamp_sprite3_10
+    21300008: Marl_Jamp_sprite3_5
+    21300010: Marl_Jamp_sprite3_1
+    21300012: Marl_Jamp_sprite3_4
+    21300014: Marl_Jamp_sprite3_2
+    21300016: Marl_Jamp_sprite3_3
+    21300018: Marl_Jamp_sprite3_12
+    21300020: Marl_Jamp_sprite3_11
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Marl_Jamp_sprite3_6
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 154
+        width: 211
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Marl_Jamp_sprite3_7
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 211
+        width: 207
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Marl_Jamp_sprite3_9
+      rect:
+        serializedVersion: 2
+        x: 2005
+        y: 261
+        width: 214
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Marl_Jamp_sprite3_10
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 183
+        width: 213
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Marl_Jamp_sprite3_5
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 54
+        width: 214
+        height: 171
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Marl_Jamp_sprite3_1
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 55
+        width: 202
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Marl_Jamp_sprite3_4
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 67
+        width: 214
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Marl_Jamp_sprite3_2
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 47
+        width: 220
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Marl_Jamp_sprite3_3
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 24
+        width: 196
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Marl_Jamp_sprite3_12
+      rect:
+        serializedVersion: 2
+        x: 2716
+        y: 49
+        width: 229
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Marl_Jamp_sprite3_11
+      rect:
+        serializedVersion: 2
+        x: 2487
+        y: 54
+        width: 210
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

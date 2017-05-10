@@ -37,10 +37,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4590090255343436}
   - component: {fileID: 212448678332279692}
-  - component: {fileID: 61488236739710584}
   - component: {fileID: 114328785409998746}
   - component: {fileID: 95390389457505738}
   - component: {fileID: 50989353759999710}
+  - component: {fileID: 61035892824093956}
   m_Layer: 0
   m_Name: Marlanx
   m_TagString: Enemy
@@ -55,8 +55,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1811714830130256}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -686.7, y: 50.8, z: 6.7578125}
-  m_LocalScale: {x: 0.07009304, y: 0.07009304, z: 0.02613}
+  m_LocalPosition: {x: 718.8, y: -13.2583065, z: 0}
+  m_LocalScale: {x: 1.4714483, y: 1.4714483, z: 0.19966392}
   m_Children:
   - {fileID: 4741057781966644}
   m_Father: {fileID: 0}
@@ -95,6 +95,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!61 &61035892824093956
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1811714830130256}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1.77, y: 1.11}
 --- !u!61 &61140680672593546
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -106,23 +120,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.20550254, y: -3.6221998}
+  m_Offset: {x: -0.038757324, y: -0.30044556}
   serializedVersion: 2
-  m_Size: {x: 44.260178, y: 17.97273}
---- !u!61 &61488236739710584
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1811714830130256}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: -0.4336452, y: -2.4559076}
-  serializedVersion: 2
-  m_Size: {x: 41.236332, y: 15.722518}
+  m_Size: {x: 2.1660588, y: 0.7467711}
 --- !u!95 &95390389457505738
 Animator:
   serializedVersion: 3
@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c0b797c8593135468d8c069ddfda99c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ATK: 0
 --- !u!114 &114328785409998746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -165,21 +166,30 @@ MonoBehaviour:
   NAME: Marlanx
   type: 
   ATK: 20
-  HP: 100
+  HP: 200
   DEF: 0
   mySpeed: 8
   walkDuration: 10
   magic: {fileID: 1000014217986326, guid: 92698c476bb3f0142a1bb663bcfa713a, type: 2}
-  direction: 1
+  direction: -1
   delay: 1
   attackRange: 0
   faceDelay: 0.7
   spawnPoint: {fileID: 0}
-  jumpspeed: 600
+  jumpspeed: 800
   sightX: 10
   sightY: 5
   inSight: 0
   meleeCollider: {fileID: 61140680672593546}
+  red: 0
+  isInvisible: 0
+  isDead: 0
+  deadCount: 0
+  deadTime: 0.15
+  invitime: 0.5
+  inviColor: {r: 1, g: 1, b: 1, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  damagedColor: {r: 0.59607846, g: 0.11372549, b: 0.11372549, a: 0.941}
   _currentAnimationState: 0
 --- !u!212 &212448678332279692
 SpriteRenderer:
@@ -212,7 +222,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8fd223add2c337644a82855014185417, type: 3}
+  m_Sprite: {fileID: 21300032, guid: ee73507f4892b644a8762c53005154a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0

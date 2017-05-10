@@ -17,13 +17,20 @@ public class D : MonoBehaviour {
     //sound
     public AudioClip[] SoundList;
     public AudioSource cometPlayer;
+    //camera
+    public EventStuff[] CameraList;
+    private AdvanceEventCam aec;
+    //video
+    public MovieTexture[] VideoList;
     //obtainBox
     public GameObject ObtainBox;
     public Sprite Opic;
     public string Otex;
 
+    
     // Use this for initialization
     void Start () {
+        aec = FindObjectOfType<AdvanceEventCam>();
         sequence = 0;
         timeCount = 0f;
         delayTime = 0.5f;
@@ -39,32 +46,7 @@ public class D : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other)
     {
-        //if (other.gameObject.tag == "DialogueEvent")
-        //{
-        //    count = true;
-        //    if (start == true)
-        //    {
-        //        playDialogue(other.GetComponent<DialogueSet>().No);
-        //        start = false;
-        //        Destroy(other.gameObject);
-        //        timeCount = 0f;
-        //        delayTime = 0.5f;
-        //        count = false;
-        //        start = false;
-        //    } else
-        //    {
-        //        if (count == true)
-        //        {
-        //            timeCount += Time.deltaTime;
-        //        }
-        //        if (timeCount > delayTime)
-        //        {
-        //            start = true;
-        //            count = false;
-        //        }
-        //    }
-
-        //}
+      
       
     }
 
@@ -77,6 +59,14 @@ public class D : MonoBehaviour {
     {
         cometPlayer.clip = SoundList[no];
         cometPlayer.Play();
+    }
+    public void playCameraEvent(int no)
+    {
+        aec.StartCam(no);
+    }
+    public void playVideo(int no)
+    {
+
     }
     public void Obtain()
     {

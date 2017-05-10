@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 224220225262209434}
   - component: {fileID: 222751208743459174}
   - component: {fileID: 114719636711850850}
+  - component: {fileID: 114271139441225676}
   m_Layer: 5
   m_Name: -10Save
   m_TagString: Untagged
@@ -45,6 +46,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114271139441225676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1873124226911692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68f79140f382baf4c9646ea53d668a18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 2
+  isParticle: 0
 --- !u!114 &114344041419189580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -66,7 +80,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 6edbb0111d4c8644dae7b4819f5d6b77, type: 3}
-    m_FontSize: 1
+    m_FontSize: 34
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -77,14 +91,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Save J
+  m_Text: Game Saved
 --- !u!114 &114719636711850850
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1873124226911692}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 

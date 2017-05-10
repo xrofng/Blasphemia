@@ -59,8 +59,7 @@ public class Move : MonoBehaviour
         doubleJumpAbilities = false;
         cameraPeekAbilities = false;
         doublieJumpSpeed = 80 * (jumpSpeed / 100);
-        maxSpeed = speed;
-        
+        maxSpeed = speed;        
         rid2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         gravityStore = rid2d.gravityScale;
@@ -77,16 +76,15 @@ public class Move : MonoBehaviour
 
             }
             else
-            {
-               
+            {               
                 Walk();
                 checkIdling();
                 Jump();
-                Attack();
-                
+                Attack();                
             }
-            OurosUse();
+            
             Ladder();
+            OurosUse();
         }      
         
     }
@@ -128,8 +126,6 @@ public class Move : MonoBehaviour
         }
     }
 
-
-
     void JumpCountTime()
     {
         if (countAJ > 0.3)
@@ -148,7 +144,6 @@ public class Move : MonoBehaviour
 
         if (Input.GetButton("Horizontal"))
         {
-            //smoothy accel
             if (isOnGround == false)
             {
                 if(isAttacking == true)
@@ -168,15 +163,13 @@ public class Move : MonoBehaviour
                 {
                     changeState(state_Walk);
                 }                
-            }
-            
+            }            
             speed = maxSpeed * Input.GetAxis("Horizontal");
             weaponCollision(GetComponent<SpriteRenderer>().flipX);
         }
         if (Input.GetButtonUp("Horizontal"))
         {
             changeState(state_Idle);
-            //smoothy stop
             float direction = Input.GetAxis("Horizontal");
             if (Input.GetAxis("Horizontal") > 0 && jumping == false)
             {
@@ -254,7 +247,6 @@ public class Move : MonoBehaviour
 
     void checkIdling()
     {
-
         if (isOnGround == true && Input.GetButton("Horizontal") == false)
         {
             jumping = false;
@@ -280,8 +272,7 @@ public class Move : MonoBehaviour
             {
                 changeState(state_Jump);
                 if (isOnGround == true || isOnSlope == true)
-                {                   
-                    
+                {                                       
                     countAJ = 0;
                     startCountTime = true;
 
@@ -320,7 +311,6 @@ public class Move : MonoBehaviour
                     }
                     else
                     {
-
                         supportForce = doublieJumpSpeed;
                     }
 
@@ -405,9 +395,13 @@ public class Move : MonoBehaviour
 
     void OurosUse()
     {
-        if (Input.GetButtonDown("Special") && Ouros.magicActive == true)
+        if (Input.GetButtonDown("Special") && Ouros.magicActive == true && isOnGround == true)
         {
             changeState(state_GroundMagic);
+        }
+        if (Input.GetButtonDown("Special") && Ouros.magicActive == true && isOnGround != true)
+        {
+            changeState(state_AirMagic);
         }
         if (Input.GetButtonDown("Item") && isOnGround == true)
         {

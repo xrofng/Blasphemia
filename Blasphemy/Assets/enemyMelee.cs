@@ -9,7 +9,7 @@ public class enemyMelee : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        //ATK = this.transform.parent.gameObject.GetComponent<EnemyAI>().ATK;
+        
         Ouros = FindObjectOfType<Ouros>();
     }
 	
