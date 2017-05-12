@@ -79,8 +79,7 @@ public class Dialogue : MonoBehaviour {
             else {
                 break;
             }
-        }     
-          
+        } 
         
 
         while (true)
@@ -89,7 +88,6 @@ public class Dialogue : MonoBehaviour {
             {
                 if (num == dialogue.Length -1)
                 {
-
                     Destroy(textBox);
                 }
                 break;

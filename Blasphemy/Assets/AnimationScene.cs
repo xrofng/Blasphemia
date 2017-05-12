@@ -18,6 +18,7 @@ public class AnimationScene : MonoBehaviour {
         {
             aso.clip = intro;
             aso.Play();
+            GetComponent<selfDestruct>().enabled = true;
         }
              
     }

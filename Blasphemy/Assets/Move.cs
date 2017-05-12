@@ -370,15 +370,17 @@ public class Move : MonoBehaviour
     void Attack()
     {
         if (Input.GetButtonDown("Attack") && isOnGround == true && animator.GetInteger("state") != 3 && isAttacking == false)
-        {            
-            changeState(state_GroundSlash);
-            attackTimeCount = attackTime;
+        {
             isAttacking = true;
+            changeState(state_GroundSlash);             
+            attackTimeCount = attackTime;
+           
         } else if (Input.GetButtonDown("Attack") && isOnGround == false && animator.GetInteger("state") != 3 && isAttacking == false)
         {
-            changeState(state_AirSlash);
-            attackTimeCount = jattackTime;
             isAttacking = true;
+            changeState(state_AirSlash);            
+            attackTimeCount = jattackTime;
+            
         }
        
         if (isAttacking == true)

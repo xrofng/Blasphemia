@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 50264421449967102}
   - component: {fileID: 60268619373070148}
   - component: {fileID: 114173302810340548}
+  - component: {fileID: 114649473209195022}
   m_Layer: 0
   m_Name: Synla
   m_TagString: Enemy
@@ -470,7 +471,7 @@ MonoBehaviour:
   mySpeed: 0
   inSight: 0
   sightX: 20
-  sightY: 20
+  sightY: 10
   randomed: 0
   poison: {fileID: 1483151928052552, guid: 319e29321a4faa040be98d173bfe403b, type: 2}
   dotArea: {fileID: 1039023657135326, guid: 2fc5057164176484fb1e673ce3f3803e, type: 2}
@@ -479,7 +480,30 @@ MonoBehaviour:
   dotSpawned: 0
   faceDelay: 0
   direction: 1
+  red: 0
+  isInvisible: 0
+  isDead: 0
+  deadCount: 0
+  deadTime: 0
+  invitime: 0
+  inviColor: {r: 0, g: 0, b: 0, a: 0}
+  normalColor: {r: 0, g: 0, b: 0, a: 0}
+  damagedColor: {r: 0, g: 0, b: 0, a: 0}
   _currentAnimationState: 0
+--- !u!114 &114649473209195022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1585633356690246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a565c0ed117e59645b1db3a9d878b5be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropList: []
+  amount: 
+  percent: 
 --- !u!212 &212517040481953766
 SpriteRenderer:
   m_ObjectHideFlags: 1

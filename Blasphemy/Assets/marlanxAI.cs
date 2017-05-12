@@ -12,7 +12,7 @@ public class marlanxAI : MonoBehaviour
     public float mySpeed;
     
     //private Animator anime;
-    [SerializeField]
+    
     //private bool inSight = false;
     //private Collider2D copied;
     private float walkDuration = 3.0f;
@@ -87,7 +87,7 @@ public class marlanxAI : MonoBehaviour
             deadCount += Time.deltaTime;
             if (deadCount > deadTime)
             {
-                Destroy(gameObject);
+                this.GetComponent<itemDrop>().enabled = true;
             }
         }
     }
