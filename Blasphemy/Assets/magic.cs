@@ -155,14 +155,22 @@ public class Magic : MonoBehaviour
 
 
     }
+    void OnCollisionEnter2D(Collision2D other)
+    {
+
+        if (other.gameObject.tag == "Player")
+        {
+            this.GetComponent<selfDestruct>().destroyNow();
+            FindObjectOfType<Ouros>().recieveDamage(Dmg);
+        }
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
        
         if (other.gameObject.tag == "Player")
         {
             this.GetComponent<selfDestruct>().destroyNow();
-            FindObjectOfType<Ouros>().recieveDamage(Dmg);
-            
+            FindObjectOfType<Ouros>().recieveDamage(Dmg);            
         }
     }
     void OnCollisionStay2D(Collision2D other)
@@ -185,7 +193,7 @@ public class Magic : MonoBehaviour
     }
     void OnCollisionExit2D(Collision2D other)
     {
-
+        
         if (other.gameObject.tag == "Player" && this.type == "surf")
         {
             stand = false;

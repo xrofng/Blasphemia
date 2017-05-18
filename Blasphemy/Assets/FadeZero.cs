@@ -48,11 +48,10 @@ public class FadeZero : MonoBehaviour {
 	}
     public void startnewFade()
     {
-        if (fadeFinish == true)
-        {
-            fadeFinish = false;
-            isFading = false;
-        }
+        
+        fadeFinish = false;
+        isFading = false;
+        
     }
     public void fadeIn()
     {

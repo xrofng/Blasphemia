@@ -169,12 +169,15 @@ public class Trigger : MonoBehaviour
         {
             if (other.gameObject.tag == "Player")
             {
-                start = true;
-                for (int i = 0; i < duplicate.Length; i++)
+                if (this.yetLaew == 0)
                 {
-                    duplicate[i].yetLaew = 1;
-                    duplicate[i].enabled = false;
+                    start = true;
+                    for (int i = 0; i < duplicate.Length; i++)
+                    {
+                        duplicate[i].yetLaew = 1;
+                        duplicate[i].enabled = false;
 
+                    }
                 }
             }
         }
@@ -192,7 +195,7 @@ public class Trigger : MonoBehaviour
     public void loadTrigger()
     {
         key = gameObject.name;
-        yetLaew = PlayerPrefs.GetInt(key, 0);        
+        yetLaew = PlayerPrefs.GetInt(key, 0);
         print("loadY" + yetLaew + " num " + No);
     }
 
