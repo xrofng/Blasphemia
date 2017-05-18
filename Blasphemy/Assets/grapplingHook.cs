@@ -12,7 +12,8 @@ public class grapplingHook : MonoBehaviour
     public float step = 0.02f;
     private Ouros Ouros;
     public float grabLength;
-
+    public float grabHeight;
+    public selfDestruct aim;
     // Use this for initialization
 
     void Start ()
@@ -35,24 +36,35 @@ public class grapplingHook : MonoBehaviour
         }
 
 	    if(Input.GetButtonDown("Special"))
-        {           
+        {
+            Vector3 aimpos;
+            float aimy;
+            float aimx;
+
             if (Input.GetAxisRaw("Vertical") == 1)
             {
-                targetPos.y = transform.position.y + grabLength;
+                targetPos.y = transform.position.y + grabHeight;
+                aimy = Ouros.GetComponent<Transform>().position.y + grabHeight;
             } else
             {
                 targetPos.y = 0;
+                aimy = Ouros.GetComponent<Transform>().position.y;
             }
             if (Ouros.GetComponent<SpriteRenderer>().flipX == false)
             {
                 targetPos.x = transform.position.x + grabLength;
+                aimx = Ouros.GetComponent<Transform>().position.x + grabLength;
             }
             else
             {
                 targetPos.x = transform.position.x - grabLength;
+                aimx = Ouros.GetComponent<Transform>().position.x - grabLength;
             }
+            aimpos = new Vector3(aimx, aimy, 0.0f);
+            print(aimpos);
             targetPos.z = 0;
-
+           
+            Instantiate(aim, aimpos, this.GetComponent<Transform>().rotation);
             hit = Physics2D.Raycast(transform.position, targetPos-transform.position, distance, mask);
 
             if(hit.collider!=null && hit.collider.gameObject.GetComponent<Rigidbody2D>()!=null)
@@ -67,7 +79,7 @@ public class grapplingHook : MonoBehaviour
                 Vector2 connectPoint = hit.point - new Vector2(hit.collider.transform.position.x, hit.collider.transform.position.y);
                 connectPoint.x = connectPoint.x / hit.collider.transform.localScale.x;
                 connectPoint.y = connectPoint.y / hit.collider.transform.localScale.y;
-                Debug.Log(connectPoint);
+               
                 joint.connectedAnchor = connectPoint;
 
                 joint.connectedBody = hit.collider.gameObject.GetComponent<Rigidbody2D>();

@@ -9,7 +9,7 @@ public static class SaveLoadManager
     public static void SavePlayer(Ouros player)
     {
         
-           BinaryFormatter bf = new BinaryFormatter();
+        BinaryFormatter bf = new BinaryFormatter();
         FileStream stream = new FileStream(Application.dataPath + "/player.sav", FileMode.Create);
 
         PlayerData data = new PlayerData(player);

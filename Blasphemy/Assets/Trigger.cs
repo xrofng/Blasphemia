@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class Trigger : MonoBehaviour {
+public class Trigger : MonoBehaviour
+{
 
     public enum triggering
     {
@@ -15,7 +16,7 @@ public class Trigger : MonoBehaviour {
         SoundCameraEvent,
         SoundAndSub,
         AnimateScene,
-        
+
     }
     public triggering triggerType;
     public int No;
@@ -24,37 +25,41 @@ public class Trigger : MonoBehaviour {
     private bool start;
     public float delay;
     private float timmcount;
-	public bool yetLaew;
+    public int yetLaew = 0;
+    public string key;
     public bool monster;
     public string monName;
     private bool stopga;
-   
 
+    void Awake()
+    {
+        key = gameObject.name;
+
+    }
     void Start()
     {
         setStop();
-		if (yetLaew == true){
-			Destroy(gameObject);
-		}
+        key = gameObject.name;
+        //yetLaew = PlayerPrefs.GetInt(key);
         start = false;
         timmcount = 0.0f;
         d = FindObjectOfType<D>();
-        
-       
+
+
     }
     public void setStop()
     {
         switch (triggerType)
         {
             case triggering.Text:
-               
+
                 break;
             case triggering.Sound:
-               
+
                 break;
             case triggering.CameraEvent:
                 stopga = true;
-               
+
                 break;
             case triggering.Video:
 
@@ -64,19 +69,19 @@ public class Trigger : MonoBehaviour {
                 break;
             case triggering.CameraEventText:
                 stopga = true;
-              
+
                 break;
             case triggering.SoundCameraEvent:
                 stopga = true;
-               
+
                 break;
             case triggering.SoundAndSub:
-                
+
                 break;
 
         }
     }
-    public  void checkType()
+    public void checkType()
     {
         switch (triggerType)
         {
@@ -91,10 +96,10 @@ public class Trigger : MonoBehaviour {
                 d.playCameraEvent(No);
                 break;
             case triggering.Video:
-               
+
                 break;
             case triggering.Picture:
-                
+
                 break;
             case triggering.CameraEventText:
                 stopga = true;
@@ -104,29 +109,35 @@ public class Trigger : MonoBehaviour {
             case triggering.SoundCameraEvent:
                 stopga = true;
                 d.playAudio(No);
-                d.playCameraEvent(No);                
+                d.playCameraEvent(No);
                 break;
             case triggering.SoundAndSub:
                 d.playAudio(No);
                 d.playDialogue(No);
                 break;
-            
+
         }
     }
 
-	// Use this for initialization
-	public void setYetlaew(bool y)
-	{
-		yetLaew = y;
-	}
-	int getNo()
+    // Use this for initialization
+    public void setYetlaew(int y)
+    {
+        yetLaew = y;
+    }
+    int getNo()
     {
         return No;
     }
-   
-    
-	// Update is called once per frame
-	void Update () {
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        //if (yetLaew == 1)
+        //{
+        //    gameObject.SetActive(false);
+        //} ----------------------------------------------------------------ai flong when player enter trigger check wa yetlaew == 0  pow if 0 player event otherwise no play
+
         if (monster == true)
         {
             if (monName == "Marlanx" && this.GetComponent<marlanxAI>().isDead == true)
@@ -134,7 +145,7 @@ public class Trigger : MonoBehaviour {
                 d.playDialogue(No);
             }
         }
-        
+
         if (start == true)
         {
             if (stopga == true)
@@ -144,29 +155,45 @@ public class Trigger : MonoBehaviour {
             timmcount += Time.deltaTime;
             if (timmcount > delay)
             {
-                checkType();                
-                yetLaew = true;
-                Destroy(gameObject);
+                checkType();
+                yetLaew = 1;
+                this.enabled = false;
             }
         }
-	}
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
+
         if (monster == false)
         {
             if (other.gameObject.tag == "Player")
             {
-                
                 start = true;
-                
                 for (int i = 0; i < duplicate.Length; i++)
                 {
-                    Destroy(duplicate[i].gameObject);
+                    duplicate[i].yetLaew = 1;
+                    duplicate[i].enabled = false;
+
                 }
             }
         }
-       
+
+    }
+
+    public void saveTrigger()
+    {
+        print("saveY" + yetLaew + " num " + No);
+        PlayerPrefs.SetInt(key, yetLaew);
+        PlayerPrefs.Save();
+        print("set" + key + " num " + No);
+    }
+
+    public void loadTrigger()
+    {
+        key = gameObject.name;
+        yetLaew = PlayerPrefs.GetInt(key, 0);        
+        print("loadY" + yetLaew + " num " + No);
     }
 
 }

@@ -43,7 +43,7 @@ public class FadeZero : MonoBehaviour {
         {
             
                 fadeFinish = true;
-            Debug.Log(fadeFinish);
+            
         }
 	}
     public void startnewFade()
@@ -58,7 +58,7 @@ public class FadeZero : MonoBehaviour {
     {
         if (isFading == false)
         {
-            Debug.Log("sasas");
+           
             isFading = true;
             fadedOut = false;
             fadedIn = true;

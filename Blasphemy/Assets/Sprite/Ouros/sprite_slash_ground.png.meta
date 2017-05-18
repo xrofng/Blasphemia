@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 1f28fce7864cda14db402bcb8860c17b
-timeCreated: 1493926487
+timeCreated: 1494705138
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -424,9 +424,9 @@ TextureImporter:
       name: sprite_slash_ground_24
       rect:
         serializedVersion: 2
-        x: 1638
-        y: 1578
-        width: 316
+        x: 1475
+        y: 1584
+        width: 553
         height: 797
       alignment: 9
       pivot: {x: 0.5, y: 0.48}

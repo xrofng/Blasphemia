@@ -6,6 +6,7 @@ public class Move : MonoBehaviour
     public float speed;
     public float maxSpeed;
     public float smooth;
+    public bool adInput;
     //aboutjump
     public float jumpSpeed;
     public float jumpDistance;
@@ -41,7 +42,7 @@ public class Move : MonoBehaviour
 
 
     //skill
-    private bool doubleJumpAbilities;
+    public bool doubleJumpAbilities;
     private bool cameraPeekAbilities;
 
     private Rigidbody2D rid2d;
@@ -65,6 +66,7 @@ public class Move : MonoBehaviour
         gravityStore = rid2d.gravityScale;
         Ouros = GetComponent<Ouros>();
         IngamePut = true;
+        adInput = true;
     }
 
     void Update()
@@ -121,7 +123,7 @@ public class Move : MonoBehaviour
         else
         {
             animator.SetInteger("state", stateI);
-            print(stateI);
+           
             _currentAnimationState = stateI;
         }
     }
@@ -142,7 +144,7 @@ public class Move : MonoBehaviour
     void Walk()
     {
 
-        if (Input.GetButton("Horizontal"))
+        if (Input.GetButton("Horizontal") && adInput == true)
         {
             if (isOnGround == false)
             {
@@ -167,7 +169,7 @@ public class Move : MonoBehaviour
             speed = maxSpeed * Input.GetAxis("Horizontal");
             weaponCollision(GetComponent<SpriteRenderer>().flipX);
         }
-        if (Input.GetButtonUp("Horizontal"))
+        if (Input.GetButtonUp("Horizontal") &&  adInput == true)
         {
             changeState(state_Idle);
             float direction = Input.GetAxis("Horizontal");
@@ -182,7 +184,7 @@ public class Move : MonoBehaviour
 
         }
         //move
-        if (Input.GetAxisRaw("Horizontal") > 0)
+        if (Input.GetAxisRaw("Horizontal") > 0 && adInput == true)
         {
             gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
             gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -202,7 +204,7 @@ public class Move : MonoBehaviour
                 
             }
         }
-        else if (Input.GetAxisRaw("Horizontal") < 0)
+        else if (Input.GetAxisRaw("Horizontal") < 0 && adInput == true)
         {
             gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
             gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;

@@ -45,4 +45,35 @@ public class enemySpell : MonoBehaviour
             transform.Translate(Vector3.right * direction *speed* Time.deltaTime,Space.World);
         }
 	}
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player") //when got hit by enemy attack // des it's magic
+        {
+            if (Ouros.isInvisible == false)
+            {
+                Ouros.HP -= this.Dmg - Ouros.DEF / this.Dmg;
+                
+            }
+        }
+    }
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Player") //when got hit by enemy attack // des it's magic
+        {
+            if (Ouros.isInvisible == false)
+            {
+                Ouros.HP -= this.Dmg - Ouros.DEF / this.Dmg;
+                if (magicName == "Snowball")
+                {
+                    this.GetComponent<selfDestruct>().destroyNow();
+                    Ouros.knockBack(1.2f);
+                }
+            }else
+            {
+                this.GetComponent<selfDestruct>().destroyNow();
+            }
+
+        }
+    }
 }

@@ -21,7 +21,11 @@ public class Ouros : MonoBehaviour
     public float yAxis;
     public float zAxis;
 
-
+    //trigger
+    public int[] triggerstate;
+    public GameObject[] goArray;
+    public string nameToArray = "TriggerPoint";
+    private int count = 0;
     //equipment
 
     //public Weapon weapon;
@@ -29,7 +33,7 @@ public class Ouros : MonoBehaviour
     public Item item;
     public Item[] itemList;
     private int itemLable = 1;
-
+    public GameObject attackPar;
     public Magic magic;
     public Magic[] magicList;
     public bool magicActive;
@@ -102,23 +106,47 @@ public class Ouros : MonoBehaviour
     }
     public void Save()
     {
+        List<GameObject> goList = new List<GameObject>();
+        string objName = "TriggerPoint";
+        foreach (GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
+        {
+            if (go.tag == objName)
+                goList.Add(go);
+        }
+        for (int i = 0; i < goList.Count; i++)
+        {
+            goList[i].GetComponent<Trigger>().saveTrigger();
+        }
+
         Debug.Log(Application.dataPath);
         SaveLoadManager.SavePlayer(this);
     }
 
     public void Load()
     {
-        int[] loadedStats = SaveLoadManager.LoadStats();
+        List<GameObject> goList = new List<GameObject>();
+        string objName = "TriggerPoint";
+        foreach (GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
+        {
+            if (go.tag == objName)
+                goList.Add(go);
+        }
+        for (int i = 0; i < goList.Count; i++)
+        {
+            goList[i].GetComponent<Trigger>().loadTrigger();
+        }
 
+
+        int[] loadedStats = SaveLoadManager.LoadStats();
         healthBar.value = loadedStats[0];
         maxHP = loadedStats[1];
         HP = loadedStats[2];
         ATK = loadedStats[3];
         DEF = loadedStats[4];
-
         float[] loadedPos = SaveLoadManager.LoadPosition();
         gameObject.transform.position = new Vector3(loadedPos[0], loadedPos[1], loadedPos[2]);
     }
+
     void playerCamera()
     {
         
@@ -168,10 +196,13 @@ public class Ouros : MonoBehaviour
         {
             if (DebugModes == true)
             {
-                DebugModes = false;
+
+                moveScript.doubleJumpAbilities = false;
+               // DebugModes = false;
             } else
             {
-                DebugModes = true;
+                moveScript.doubleJumpAbilities = true;
+                //DebugModes = true;
             }
         }
         if (DebugModes == true)
@@ -187,9 +218,13 @@ public class Ouros : MonoBehaviour
         yAxis = gameObject.transform.position.y;
         zAxis = gameObject.transform.position.z;
     }
-
+    public void recieveDamage(int dmg)
+    {
+        this.HP -= dmg - this.DEF / dmg;
+    }
     void checkDie()
     {
+        
         if (this.HP <= 0)
         {
 
@@ -392,13 +427,15 @@ public class Ouros : MonoBehaviour
         isInvisible = true;
     }
 
+    
+
     void OnTriggerEnter2D(Collider2D other) 
     {
         if (other.gameObject.tag == "EnemyAttack") //when got hit by enemy attack // des it's magic
         {
             if (isInvisible == false)
             {
-                HP -= other.gameObject.GetComponent<Magic>().Dmg - this.DEF / other.gameObject.GetComponent<Magic>().Dmg;
+               // HP -= other.gameObject.GetComponent<Magic>().Dmg - this.DEF / other.gameObject.GetComponent<Magic>().Dmg;
                 other.GetComponent<selfDestruct>().destroyNow();
                 knockBack(0.2f);
             }
@@ -419,9 +456,8 @@ public class Ouros : MonoBehaviour
         {
             if (isInvisible == false)
             {
-                HP -= other.gameObject.GetComponent<Magic>().Dmg - this.DEF / other.gameObject.GetComponent<Magic>().Dmg;
-                other.gameObject.GetComponent<selfDestruct>().destroyNow();
-                knockBack(1.2f);
+               //HP -= other.gameObject.GetComponent<Magic>().Dmg - this.DEF / other.gameObject.GetComponent<Magic>().Dmg;
+                
             }
 
         }
