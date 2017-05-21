@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chrono: 0.000001
   dialogue:
-  - Unlocked
+  - Put Spear into stone
   - 
   charRate: 0
   permit: 1

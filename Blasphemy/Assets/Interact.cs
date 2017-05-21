@@ -19,7 +19,7 @@ public class Interact : MonoBehaviour {
 	}
 	bool condition()
     {
-        if (require == "Spear" && FindObjectOfType<Variable>().var_spear == 3)
+        if (require == "Spear" && FindObjectOfType<Variable>().var_spear >= 3)
         {
             return true;
         }

@@ -15,6 +15,7 @@ public class mainMenu : MonoBehaviour {
 	void Start () {
         choose = 1;
        
+        Cursor.visible = false;
     }
 
   

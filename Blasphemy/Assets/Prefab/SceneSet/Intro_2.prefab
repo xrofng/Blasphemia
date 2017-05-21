@@ -112,14 +112,6 @@ MonoBehaviour:
   goodshit:
   - {fileID: 4294501456360196}
   speed:
-  - 2
-  - 3
-  - 3
-  - 3
-  - 3
+  - 1
   delay:
-  - 4
-  - 2
-  - 2
-  - 2
-  - 2
+  - 5

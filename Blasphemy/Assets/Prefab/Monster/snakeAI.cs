@@ -142,6 +142,7 @@ public class snakeAI : MonoBehaviour
                 {
                     //change state
                     Instantiate(poison, spawnPoint.transform.position, spawnPoint.transform.rotation);
+                    
                     poisonCount++;
                     timecount = 0.0f;
                 }

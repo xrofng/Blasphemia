@@ -55,7 +55,7 @@ MonoBehaviour:
   type: shoot
   damage: 30
   delayTime: 0.7
-  speed: 8
+  speed: 5
   destructTime: 2
   spawnPoint: {fileID: 4989776482399388}
   direction: {x: 0, y: -1}

@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1411800184240288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -378.15, y: 39.42, z: 0}
-  m_LocalScale: {x: 2.6541412, y: 1.0339601, z: 6.874696}
+  m_LocalPosition: {x: 69.78782, y: -194.5914, z: 0}
+  m_LocalScale: {x: 1.2607174, y: 1.0339601, z: 6.874696}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -69,6 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 1.25
+  isParticle: 0
 --- !u!114 &114540910497269716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -86,6 +87,7 @@ MonoBehaviour:
   type: projectile
   speed: 5
   direction: {x: 0, y: -1}
+  stand: 0
   unLimit: 0
   charge: 0
   Dmg: 30
