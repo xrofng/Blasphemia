@@ -194,15 +194,15 @@ public class Ouros : MonoBehaviour
     {
         if (Input.GetButton("DebugMode"))
         {
+            FindObjectOfType<Variable>().var_spear += 1;
             if (DebugModes == true)
             {
-
                 moveScript.doubleJumpAbilities = false;
-               // DebugModes = false;
+                DebugModes = false;
             } else
             {
                 moveScript.doubleJumpAbilities = true;
-                //DebugModes = true;
+                DebugModes = true;
             }
         }
         if (DebugModes == true)
@@ -305,8 +305,7 @@ public class Ouros : MonoBehaviour
     }
 
     void swapMagic()
-    {
-        magic = magicList[magicLable];
+    {    
         
         if (Input.GetButtonDown("MagicChange") && maxMagi!=2)
         {
@@ -333,7 +332,12 @@ public class Ouros : MonoBehaviour
                 }
 
             }
+            magic = magicList[magicLable];
         }
+        
+            
+        
+
 
     }
 

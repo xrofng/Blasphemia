@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chrono: 0.000001
   dialogue:
-  - Locked
+  - It looks like there are holes to put something in there
   - 
   charRate: 0
   permit: 1

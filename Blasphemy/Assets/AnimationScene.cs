@@ -39,6 +39,8 @@ public class AnimationScene : MonoBehaviour {
                 if (fz.fadeFinish == true)
                 {
                     fz.fadeIn();
+                    Move m = FindObjectOfType<Move>();
+                    m.setIngamePut(true);
                 }
             }
         }
@@ -54,6 +56,8 @@ public class AnimationScene : MonoBehaviour {
         {
             start = true;
             aso.clip = intro;
+            Move m = FindObjectOfType<Move>();
+            m.setIngamePut(false);
             aso.Play();
             GetComponent<selfDestruct>().enabled = true;
         }

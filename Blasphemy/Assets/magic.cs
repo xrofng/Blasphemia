@@ -169,8 +169,12 @@ public class Magic : MonoBehaviour
        
         if (other.gameObject.tag == "Player")
         {
+            if (this.tag == "EnemyAttack")
+            {
+                
             this.GetComponent<selfDestruct>().destroyNow();
-            FindObjectOfType<Ouros>().recieveDamage(Dmg);            
+            FindObjectOfType<Ouros>().recieveDamage(Dmg); 
+            }           
         }
     }
     void OnCollisionStay2D(Collision2D other)

@@ -8,27 +8,35 @@ public class mainMenu : MonoBehaviour {
 
     private int choose;
     public RectTransform cursor;
-    
+    public Text winful;
+    public Text newg;
+    public Text con;
+    private int currentMode;
+
     static public bool GameWillLoadSave;
 
-	// Use this for initialization
+	
 	void Start () {
-        choose = 1;
-       
+        choose = 1;       
+        Cursor.visible = false;
+        // ***YoYo the Great - implement in start to check what mode is it and set currentMode 0=full 1=window
     }
 
-  
+
 
     void cursosur()
     {
-        float x = -70f;
+       
         if (choose == 1)
         {
-            cursor.localPosition = new Vector3(0, -130, 0);
+            cursor.localPosition = new Vector3(0, newg.GetComponent<Transform>().localPosition.y, 0);
         }
         else if (choose == 2)
         {
-            cursor.localPosition = new Vector3(0, -173, 0);
+            cursor.localPosition = new Vector3(0, con.GetComponent<Transform>().localPosition.y, 0);
+        } else if (choose == 3)
+        {
+            cursor.localPosition = new Vector3(0, winful.GetComponent<Transform>().localPosition.y, 0);
         }
     }
     void toggle()
@@ -44,13 +52,13 @@ public class mainMenu : MonoBehaviour {
                 choose -= 1;
             }
 
-            if (choose > 2)
+            if (choose > 3)
             {
                 choose = 1;
             }
             if (choose < 1)
             {
-                choose = 2;
+                choose = 3;
             }
         }
 
@@ -70,11 +78,13 @@ public class mainMenu : MonoBehaviour {
         {
             GameWillLoadSave = true;
             SceneManager.LoadScene(1, LoadSceneMode.Single);
+        } else if (choose == 3)
+        {
+            // ***YoYo the Great - implement switch in this check currentMode blah blah
         }
         
 
     }
-    // Update is called once per frame
     void Update()
     {
         toggle();
