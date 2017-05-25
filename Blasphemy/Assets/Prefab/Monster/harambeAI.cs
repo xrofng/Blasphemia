@@ -365,6 +365,14 @@ public class harambeAI : MonoBehaviour
             other.enabled = false;
             knockBack(1.0f);
         }
+        else if (other.gameObject.tag == "Magic" && isInvisible == false)
+        {
+            HP -= Ouros.ATK - this.DEF / Ouros.ATK;
+            Instantiate(Ouros.attackPar, other.transform.position, other.GetComponent<Transform>().rotation);
+            other.enabled = false;
+            Destroy(other.gameObject);
+            knockBack(1.0f);
+        }
         else
         {
 

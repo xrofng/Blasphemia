@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 125395233858f4c439add626bb785e17
-timeCreated: 1495355099
+timeCreated: 1495472267
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -228,10 +228,10 @@ TextureImporter:
       name: tileforest_2_16
       rect:
         serializedVersion: 2
-        x: 707
-        y: 144
-        width: 686
-        height: 213
+        x: 709
+        y: 146
+        width: 682
+        height: 208
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

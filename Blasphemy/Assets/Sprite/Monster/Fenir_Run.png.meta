@@ -1,0 +1,407 @@
+fileFormatVersion: 2
+guid: 62d785e0eccdb5d4e8bfd87e3a8a93b9
+timeCreated: 1495535607
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Fenir_Run_0
+    21300002: Fenir_Run_1
+    21300004: Fenir_Run_2
+    21300006: Fenir_Run_3
+    21300008: Fenir_Run_4
+    21300010: Fenir_Run_5
+    21300012: Fenir_Run_6
+    21300014: Fenir_Run_7
+    21300016: Fenir_Run_8
+    21300018: Fenir_Run_9
+    21300020: Fenir_Run_10
+    21300022: Fenir_Run_11
+    21300024: Fenir_Run_12
+    21300026: Fenir_Run_13
+    21300028: Fenir_Run_14
+    21300030: Fenir_Run_15
+    21300032: Fenir_Run_16
+    21300034: Fenir_Run_17
+    21300036: Fenir_Run_18
+    21300038: Fenir_Run_19
+    21300040: Fenir_Run_20
+    21300042: Fenir_Run_21
+    21300044: Fenir_Run_22
+    21300046: Fenir_Run_23
+    21300048: Fenir_Run_24
+    21300050: Fenir_Run_25
+    21300052: Fenir_Run_26
+    21300054: Fenir_Run_27
+    21300056: Fenir_Run_28
+    21300058: Fenir_Run_29
+    21300060: Fenir_Run_30
+    21300062: Fenir_Run_31
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fenir_Run_0
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 1252
+        width: 693
+        height: 612
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fenir_Run_1
+      rect:
+        serializedVersion: 2
+        x: 1153
+        y: 1205
+        width: 966
+        height: 677
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fenir_Run_2
+      rect:
+        serializedVersion: 2
+        x: 4173
+        y: 1813
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fenir_Run_3
+      rect:
+        serializedVersion: 2
+        x: 5333
+        y: 1805
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fenir_Run_5
+      rect:
+        serializedVersion: 2
+        x: 2325
+        y: 1134
+        width: 854
+        height: 602
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fenir_Run_6
+      rect:
+        serializedVersion: 2
+        x: 3419
+        y: 1216
+        width: 983
+        height: 522
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fenir_Run_7
+      rect:
+        serializedVersion: 2
+        x: 4628
+        y: 1189
+        width: 899
+        height: 528
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fenir_Run_11
+      rect:
+        serializedVersion: 2
+        x: 4258
+        y: 1213
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fenir_Run_15
+      rect:
+        serializedVersion: 2
+        x: 5116
+        y: 1088
+        width: 51
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fenir_Run_16
+      rect:
+        serializedVersion: 2
+        x: 5110
+        y: 1093
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fenir_Run_17
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 254
+        width: 717
+        height: 582
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fenir_Run_18
+      rect:
+        serializedVersion: 2
+        x: 1217
+        y: 392
+        width: 14
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fenir_Run_19
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 227
+        width: 794
+        height: 552
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fenir_Run_20
+      rect:
+        serializedVersion: 2
+        x: 2366
+        y: 318
+        width: 849
+        height: 582
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fenir_Run_21
+      rect:
+        serializedVersion: 2
+        x: 3550
+        y: 240
+        width: 975
+        height: 517
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fenir_Run_22
+      rect:
+        serializedVersion: 2
+        x: 4678
+        y: 216
+        width: 790
+        height: 563
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fenir_Run_23
+      rect:
+        serializedVersion: 2
+        x: 2873
+        y: 308
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fenir_Run_25
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 239
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fenir_Run_26
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 230
+        width: 58
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fenir_Run_27
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 179
+        width: 62
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fenir_Run_28
+      rect:
+        serializedVersion: 2
+        x: 4044
+        y: 113
+        width: 50
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fenir_Run_29
+      rect:
+        serializedVersion: 2
+        x: 4821
+        y: 197
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fenir_Run_31
+      rect:
+        serializedVersion: 2
+        x: 4036
+        y: 119
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

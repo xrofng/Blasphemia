@@ -69,6 +69,25 @@ public class Interact : MonoBehaviour {
                     door.open();
                 }
             }
+            if (type == 4)
+            {
+                if (Input.GetButton("Interact"))
+                {
+                    if (FindObjectOfType<Ouros>().GetComponent<SpriteRenderer>().flipX == true)
+                    {
+                        success.GetComponent<SpriteRenderer>().flipY = true;
+                        success.GetComponent<Magic>().setDirection(new Vector2(0, -1));
+                    }
+                    else
+                    {
+                        success.GetComponent<SpriteRenderer>().flipY = false;
+                        success.GetComponent<Magic>().setDirection(new Vector2(0, 1));
+                    }
+                    Instantiate(success,FindObjectOfType<Ouros>().transform.position,success.transform.rotation);
+                    Destroy(this.gameObject);
+                }
+                
+            }
 
         }
     }

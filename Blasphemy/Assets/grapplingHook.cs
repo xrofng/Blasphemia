@@ -6,7 +6,7 @@ public class grapplingHook : MonoBehaviour
     public LineRenderer line;
     DistanceJoint2D joint;
     Vector3 targetPos;
-    RaycastHit2D hit;
+    public RaycastHit2D hit;
     public float distance = 10f;
     public LayerMask mask;
     public float step = 0.02f;
@@ -47,7 +47,7 @@ public class grapplingHook : MonoBehaviour
                 aimy = Ouros.GetComponent<Transform>().position.y + grabHeight;
             } else
             {
-                targetPos.y = 0;
+                targetPos.y = transform.position.y;
                 aimy = Ouros.GetComponent<Transform>().position.y;
             }
             if (Ouros.GetComponent<SpriteRenderer>().flipX == false)
@@ -61,12 +61,12 @@ public class grapplingHook : MonoBehaviour
                 aimx = Ouros.GetComponent<Transform>().position.x - grabLength;
             }
             aimpos = new Vector3(aimx, aimy, 0.0f);
-            print(aimpos);
+          
             targetPos.z = 0;
            
             Instantiate(aim, aimpos, this.GetComponent<Transform>().rotation);
             hit = Physics2D.Raycast(transform.position, targetPos-transform.position, distance, mask);
-
+         
             if(hit.collider!=null && hit.collider.gameObject.GetComponent<Rigidbody2D>()!=null)
             {
                 joint.enabled = true;
@@ -89,12 +89,13 @@ public class grapplingHook : MonoBehaviour
                 line.enabled = true;
                 line.SetPosition(0, transform.position);
                 line.SetPosition(1, hit.point);
+                line.SetPosition(1, joint.connectedBody.transform.TransformPoint(joint.connectedAnchor));
             }
         }
+     
 
-        line.SetPosition(1, joint.connectedBody.transform.TransformPoint(joint.connectedAnchor));
 
-        if(Input.GetButton("Special"))
+        if (Input.GetButton("Special"))
 
         {
             line.SetPosition(0, transform.position);

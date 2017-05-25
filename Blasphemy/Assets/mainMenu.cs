@@ -11,14 +11,15 @@ public class mainMenu : MonoBehaviour {
     public Text winful;
     public Text newg;
     public Text con;
+    public Text exit;
     private int currentMode;
-
+    public GameObject optionmenu;
     static public bool GameWillLoadSave;
 
 	
 	void Start () {
         choose = 1;       
-        Cursor.visible = false;
+        Cursor.visible = true;
         // ***YoYo the Great - implement in start to check what mode is it and set currentMode 0=full 1=window
     }
 
@@ -38,6 +39,11 @@ public class mainMenu : MonoBehaviour {
         {
             cursor.localPosition = new Vector3(0, winful.GetComponent<Transform>().localPosition.y, 0);
         }
+        else if(choose == 4)
+        {
+            cursor.localPosition = new Vector3(0, exit.GetComponent<Transform>().localPosition.y, 0);
+
+        }
     }
     void toggle()
     {
@@ -52,13 +58,13 @@ public class mainMenu : MonoBehaviour {
                 choose -= 1;
             }
 
-            if (choose > 3)
+            if (choose > 4)
             {
                 choose = 1;
             }
             if (choose < 1)
             {
-                choose = 3;
+                choose = 4;
             }
         }
 
@@ -80,7 +86,11 @@ public class mainMenu : MonoBehaviour {
             SceneManager.LoadScene(1, LoadSceneMode.Single);
         } else if (choose == 3)
         {
-            // ***YoYo the Great - implement switch in this check currentMode blah blah
+            optionmenu.GetComponent<Menu>().OptionsMenu();
+        }
+        else if(choose==4)
+        {
+            optionmenu.GetComponent<Menu>().Quit();
         }
         
 

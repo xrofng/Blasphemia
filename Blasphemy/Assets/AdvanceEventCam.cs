@@ -57,9 +57,7 @@ public class AdvanceEventCam : MonoBehaviour
                         this.GetComponent<Transform>().position = origin;
                         movescript.setIngamePut(true);
                         FadeZero f = FindObjectOfType<FadeZero>();
-                        f.startnewFade();
-                        f.fadeIn();
-                        f.startnewFade();
+                      
                     }
                     else
                     {

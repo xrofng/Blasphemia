@@ -45,7 +45,10 @@ public class Magic : MonoBehaviour
 
     void Start()
     {
-
+        if (type == "surf")
+        {
+            GetComponent<selfDestruct>().enabled = true;
+        }
     }
 
  
@@ -158,7 +161,7 @@ public class Magic : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other)
     {
 
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && this.type != "surf")
         {
             this.GetComponent<selfDestruct>().destroyNow();
             FindObjectOfType<Ouros>().recieveDamage(Dmg);
@@ -167,7 +170,7 @@ public class Magic : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
        
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" )
         {
             if (this.tag == "EnemyAttack")
             {

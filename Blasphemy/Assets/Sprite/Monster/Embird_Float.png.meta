@@ -1,9 +1,34 @@
 fileFormatVersion: 2
 guid: b22fd2ce2328a4949b3296276066f2ab
-timeCreated: 1494790427
+timeCreated: 1495691306
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Embird_Float_0
+    21300002: Embird_Float_1
+    21300004: Embird_Float_2
+    21300006: Embird_Float_3
+    21300008: Embird_Float_4
+    21300010: Embird_Float_5
+    21300012: Embird_Float_6
+    21300014: Embird_Float_7
+    21300016: Embird_Float_8
+    21300018: Embird_Float_9
+    21300020: Embird_Float_10
+    21300022: Embird_Float_11
+    21300024: Embird_Float_12
+    21300026: Embird_Float_13
+    21300028: Embird_Float_14
+    21300030: Embird_Float_15
+    21300032: Embird_Float_16
+    21300034: Embird_Float_17
+    21300036: Embird_Float_18
+    21300038: Embird_Float_19
+    21300040: Embird_Float_20
+    21300042: Embird_Float_21
+    21300044: Embird_Float_6.1
+    21300046: Embird_Float_6.2
+    21300048: Embird_Float_6.3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -34,7 +59,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -58,9 +83,342 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Embird_Float_0
+      rect:
+        serializedVersion: 2
+        x: 5099
+        y: 2359
+        width: 1861
+        height: 1652
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_1
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 2481
+        width: 1539
+        height: 1574
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_2
+      rect:
+        serializedVersion: 2
+        x: 1882
+        y: 2600
+        width: 1373
+        height: 1349
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_3
+      rect:
+        serializedVersion: 2
+        x: 3361
+        y: 2635
+        width: 1752
+        height: 1420
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_4
+      rect:
+        serializedVersion: 2
+        x: 6971
+        y: 2505
+        width: 1952
+        height: 1574
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_5
+      rect:
+        serializedVersion: 2
+        x: 9077
+        y: 2517
+        width: 1976
+        height: 1526
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_6
+      rect:
+        serializedVersion: 2
+        x: 11207
+        y: 2635
+        width: 1989
+        height: 1420
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_7
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 706
+        width: 1408
+        height: 1432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_8
+      rect:
+        serializedVersion: 2
+        x: 1657
+        y: 718
+        width: 1136
+        height: 1432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_9
+      rect:
+        serializedVersion: 2
+        x: 2801
+        y: 835
+        width: 1106
+        height: 1312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_10
+      rect:
+        serializedVersion: 2
+        x: 3943
+        y: 808
+        width: 1243
+        height: 1289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_11
+      rect:
+        serializedVersion: 2
+        x: 5305
+        y: 817
+        width: 1303
+        height: 1179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_12
+      rect:
+        serializedVersion: 2
+        x: 6800
+        y: 932
+        width: 1188
+        height: 1027
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_13
+      rect:
+        serializedVersion: 2
+        x: 8071
+        y: 932
+        width: 1201
+        height: 921
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_14
+      rect:
+        serializedVersion: 2
+        x: 9282
+        y: 744
+        width: 1394
+        height: 1233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_15
+      rect:
+        serializedVersion: 2
+        x: 10712
+        y: 877
+        width: 1436
+        height: 1252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_16
+      rect:
+        serializedVersion: 2
+        x: 12194
+        y: 817
+        width: 1444
+        height: 1316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_17
+      rect:
+        serializedVersion: 2
+        x: 13652
+        y: 578
+        width: 1619
+        height: 1560
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_18
+      rect:
+        serializedVersion: 2
+        x: 15349
+        y: 666
+        width: 1619
+        height: 1481
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_19
+      rect:
+        serializedVersion: 2
+        x: 17170
+        y: 643
+        width: 1527
+        height: 1366
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_20
+      rect:
+        serializedVersion: 2
+        x: 18761
+        y: 835
+        width: 1445
+        height: 1142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_21
+      rect:
+        serializedVersion: 2
+        x: 20330
+        y: 858
+        width: 1449
+        height: 1229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_6.1
+      rect:
+        serializedVersion: 2
+        x: 13366
+        y: 2609
+        width: 2039
+        height: 1412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_6.2
+      rect:
+        serializedVersion: 2
+        x: 15451
+        y: 2629
+        width: 2039
+        height: 1405
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Embird_Float_6.3
+      rect:
+        serializedVersion: 2
+        x: 17574
+        y: 2674
+        width: 1722
+        height: 1366
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

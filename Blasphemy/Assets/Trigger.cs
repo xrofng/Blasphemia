@@ -16,7 +16,10 @@ public class Trigger : MonoBehaviour
         SoundCameraEvent,
         SoundAndSub,
         AnimateScene,
-
+        TextSoundCam,
+        Spawn,
+        Destroy,
+        SpawnSoundCam
     }
     public triggering triggerType;
     public int No;
@@ -78,7 +81,9 @@ public class Trigger : MonoBehaviour
             case triggering.SoundAndSub:
 
                 break;
-
+            case triggering.TextSoundCam:
+                stopga = true;
+                break;
         }
     }
     public void checkType()
@@ -96,7 +101,7 @@ public class Trigger : MonoBehaviour
                 d.playCameraEvent(No);
                 break;
             case triggering.Video:
-
+                d.playVideo(No);
                 break;
             case triggering.Picture:
 
@@ -115,7 +120,23 @@ public class Trigger : MonoBehaviour
                 d.playAudio(No);
                 d.playDialogue(No);
                 break;
-
+            case triggering.TextSoundCam:
+                d.playAudio(No);
+                d.playDialogue(No);
+                d.playCameraEvent(No);
+                break;
+            case triggering.Spawn:
+                d.spawnSomething(No);
+                break;
+            case triggering.Destroy:
+                d.destroySomething(No);
+                break;
+            case triggering.SpawnSoundCam:
+                d.spawnSomething(No);
+                d.playCameraEvent(No);
+                d.playAudio(No);
+                break;
+        
         }
     }
 
@@ -137,7 +158,7 @@ public class Trigger : MonoBehaviour
         //{
         //    gameObject.SetActive(false);
         //} ----------------------------------------------------------------ai flong when player enter trigger check wa yetlaew == 0  pow if 0 player event otherwise no play
-
+        
         if (monster == true)
         {
             if (monName == "Marlanx" && this.GetComponent<marlanxAI>().isDead == true)
@@ -148,6 +169,7 @@ public class Trigger : MonoBehaviour
 
         if (start == true)
         {
+
             if (stopga == true)
             {
                 FindObjectOfType<Move>().setIngamePut(false);

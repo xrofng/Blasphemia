@@ -54,8 +54,9 @@ public class Ouros : MonoBehaviour
     public Color normalColor;
     public Color damagedColor;
 
-
-
+    public float deadCount;
+    public float deadTime;
+    private bool dead;
     //public Item buffItem;
 
     private Move moveScript;
@@ -222,18 +223,35 @@ public class Ouros : MonoBehaviour
     {
         this.HP -= dmg - this.DEF / dmg;
     }
+    void die()
+    {
+       
+        deadCount += Time.deltaTime;
+        if (deadCount > deadTime)
+        {
+            SceneManager.LoadScene(2, LoadSceneMode.Single);
+        }
+        
+    }
     void checkDie()
     {
         
         if (this.HP <= 0)
         {
-
             FadeZero fz = FindObjectOfType<FadeZero>();
+            if (dead == false)
+            {
+                dead = true;
+                fz.startnewFade();
+                
+            }
 
+            moveScript.changeState(13);
+            
             fz.fadeOut();
             if (fz.fadeFinish == true)
             {
-                SceneManager.LoadScene(2, LoadSceneMode.Single);
+                die();
             }
         }
     }
@@ -307,7 +325,7 @@ public class Ouros : MonoBehaviour
     void swapMagic()
     {    
         
-        if (Input.GetButtonDown("MagicChange") && maxMagi!=2)
+        if (Input.GetButtonDown("MagicChange") && maxMagi>=2)
         {
             
             if (Input.GetAxisRaw("MagicChange") == 1)
@@ -359,6 +377,24 @@ public class Ouros : MonoBehaviour
                         magic.setDirection(Vector2.right);
                     }
                     Instantiate(magic, gameObject.transform.position, gameObject.transform.rotation);
+                }
+                if (magic.type == "surf")
+                {
+                    int sx = 20;
+                    int sy = 5;
+                    Vector3 spawnpoint;
+                    if (GetComponent<SpriteRenderer>().flipX == true)
+                    {
+                        spawnpoint = new Vector3(transform.position.x - sx, transform.position.y + sy, transform.position.z);
+                        Instantiate(magic, spawnpoint, gameObject.transform.rotation);
+                    }
+                    else if (GetComponent<SpriteRenderer>().flipX == false)
+                    {
+                        spawnpoint = new Vector3(transform.position.x + sx, transform.position.y + sy, transform.position.z);
+                        Instantiate(magic, spawnpoint, gameObject.transform.rotation);
+                        
+                    }
+                   
                 }
                 magic.charge -= 1;
             }
@@ -435,6 +471,7 @@ public class Ouros : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) 
     {
+  
         if (other.gameObject.tag == "EnemyAttack") //when got hit by enemy attack // des it's magic
         {
             if (isInvisible == false)

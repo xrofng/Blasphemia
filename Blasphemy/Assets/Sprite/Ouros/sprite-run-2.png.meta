@@ -1,9 +1,17 @@
 fileFormatVersion: 2
 guid: 20473d4d118d57f449732e53e9c4dee4
-timeCreated: 1495149718
+timeCreated: 1495469124
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: sprite-run-2_0
+    21300002: sprite-run-2_1
+    21300004: sprite-run-2_2
+    21300006: sprite-run-2_3
+    21300008: sprite-run-2_4
+    21300010: sprite-run-2_5
+    21300012: sprite-run-2_6
+    21300014: sprite-run-2_7
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -34,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -58,9 +66,121 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: sprite-run-2_0
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 134
+        width: 563
+        height: 676
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite-run-2_1
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 104
+        width: 384
+        height: 693
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite-run-2_2
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 105
+        width: 378
+        height: 703
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite-run-2_3
+      rect:
+        serializedVersion: 2
+        x: 1881
+        y: 122
+        width: 515
+        height: 698
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite-run-2_4
+      rect:
+        serializedVersion: 2
+        x: 2519
+        y: 138
+        width: 561
+        height: 672
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite-run-2_5
+      rect:
+        serializedVersion: 2
+        x: 3267
+        y: 102
+        width: 376
+        height: 694
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite-run-2_6
+      rect:
+        serializedVersion: 2
+        x: 3813
+        y: 105
+        width: 367
+        height: 705
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite-run-2_7
+      rect:
+        serializedVersion: 2
+        x: 4315
+        y: 114
+        width: 508
+        height: 706
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

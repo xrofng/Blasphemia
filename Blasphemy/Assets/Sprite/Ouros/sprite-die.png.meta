@@ -1,9 +1,20 @@
 fileFormatVersion: 2
 guid: 98f613da9e09c304e873c4c8697e968c
-timeCreated: 1495149721
+timeCreated: 1495464439
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: sprite-die_0
+    21300002: sprite-die_1
+    21300004: sprite-die_2
+    21300006: sprite-die_3
+    21300008: sprite-die_4
+    21300010: sprite-die_5
+    21300012: sprite-die_6
+    21300014: sprite-die_7
+    21300016: sprite-die_8
+    21300018: sprite-die_9
+    21300020: sprite-die_10
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -34,7 +45,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -58,9 +69,160 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: sprite-die_0
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 2918
+        width: 816
+        height: 639
+      alignment: 9
+      pivot: {x: 0.06459802, y: 0.037846383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite-die_1
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 2987
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite-die_2
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 2194
+        width: 816
+        height: 639
+      alignment: 9
+      pivot: {x: 0.07186791, y: 0.07951081}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite-die_3
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 2184
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite-die_4
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 2168
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite-die_5
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 1483
+        width: 816
+        height: 639
+      alignment: 9
+      pivot: {x: 0.021879772, y: -0.0013084129}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite-die_6
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 1475
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite-die_7
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 678
+        width: 816
+        height: 639
+      alignment: 9
+      pivot: {x: 0.004972486, y: 0.0006782639}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite-die_8
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 856
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite-die_9
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 430
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite-die_10
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 1
+        width: 816
+        height: 639
+      alignment: 9
+      pivot: {x: 0.024996962, y: 0.17274395}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

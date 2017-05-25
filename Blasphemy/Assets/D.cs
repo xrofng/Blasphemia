@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class D : MonoBehaviour {
     // D stand from Display
@@ -21,13 +22,14 @@ public class D : MonoBehaviour {
     public EventStuff[] CameraList;
     private AdvanceEventCam aec;
     //video
-    public MovieTexture[] VideoList;
+    public VideoClip[] VideoList;
+    public VideoStream vs;
     //obtainBox
     public GameObject ObtainBox;
     public Sprite Opic;
     public string Otex;
-
-    
+    //spawnDestroy
+    public GameObject[] spaNdes;
     // Use this for initialization
     void Start () {
         aec = FindObjectOfType<AdvanceEventCam>();
@@ -49,7 +51,18 @@ public class D : MonoBehaviour {
       
       
     }
-
+    public void spawnSomething(int no)
+    {
+        Instantiate(spaNdes[no]);
+    }
+    public void destroySomething(int no)
+    {        
+        foreach (Transform child in spaNdes[no].transform)
+        {
+            child.GetComponentInChildren<selfDestruct>().enabled = true;
+        }
+        spaNdes[no].GetComponent<selfDestruct>().enabled = true;
+    }
     public void playDialogue(int no)
     {
         GameObject Dlog = Instantiate(DialogueList[no]) as GameObject;
@@ -66,7 +79,7 @@ public class D : MonoBehaviour {
     }
     public void playVideo(int no)
     {
-
+        vs.startVideo(VideoList[no]);
     }
     public void Obtain()
     {

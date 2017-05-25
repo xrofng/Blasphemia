@@ -85,7 +85,7 @@ public class Move : MonoBehaviour
                 Attack();                
             }
             
-            Ladder();
+            //Ladder();
             OurosUse();
         }      
         
@@ -110,8 +110,9 @@ public class Move : MonoBehaviour
     public static int state_AirMagic = 6;
     //public static int state_GroundThrust = 7;
     //public static int state_AirThrust = 8;
-    public static int state_Ladder = 9; //
-    public static int state_Item = 10; //
+    // public static int state_Ladder = 9; //
+    // public static int state_Item = 10; //
+    public static int state_Dead = 13; //
 
     public int _currentAnimationState = state_Idle;
     public void changeState(int stateI)
@@ -143,7 +144,7 @@ public class Move : MonoBehaviour
 
     void Walk()
     {
-
+        
         if (Input.GetButton("Horizontal") && adInput == true)
         {
             if (isOnGround == false)
@@ -336,38 +337,38 @@ public class Move : MonoBehaviour
 
     }
 
-    void Ladder()
-    {
-        if (isOnLadder == true)
-        {
-            if (Input.GetButton("Vertical"))
-            {
-                changeState(state_Ladder);
-                isOnGround = false;
+    //void Ladder()
+    //{
+    //    if (isOnLadder == true)
+    //    {
+    //        if (Input.GetButton("Vertical"))
+    //        {
+    //            changeState(state_Ladder);
+    //            isOnGround = false;
                
-                rid2d.gravityScale = 0f;
-                climbVelo = climbSpeed * Input.GetAxisRaw("Vertical");
-                transform.Translate(Vector2.up * Time.deltaTime * climbVelo);
-            }
-            float direction = Input.GetAxis("Horizontal");
-            if (Input.GetButtonDown("Jump"))
-            {
-                rid2d.gravityScale = 0f;
-                if (Input.GetAxis("Horizontal") > 0)
-                {
-                    rid2d.AddForce(new Vector2(speedExitLadder * direction  , rid2d.velocity.y));
-                }
-                else if (Input.GetAxis("Horizontal") < 0)
-                {
-                    rid2d.AddForce(new Vector2(speedExitLadder * direction , rid2d.velocity.y));
-                }
-            }          
-        }
-        if (isOnLadder == false)
-        {
-            rid2d.gravityScale = gravityStore;
-        }
-    }
+    //            rid2d.gravityScale = 0f;
+    //            climbVelo = climbSpeed * Input.GetAxisRaw("Vertical");
+    //            transform.Translate(Vector2.up * Time.deltaTime * climbVelo);
+    //        }
+    //        float direction = Input.GetAxis("Horizontal");
+    //        if (Input.GetButtonDown("Jump"))
+    //        {
+    //            rid2d.gravityScale = 0f;
+    //            if (Input.GetAxis("Horizontal") > 0)
+    //            {
+    //                rid2d.AddForce(new Vector2(speedExitLadder * direction  , rid2d.velocity.y));
+    //            }
+    //            else if (Input.GetAxis("Horizontal") < 0)
+    //            {
+    //                rid2d.AddForce(new Vector2(speedExitLadder * direction , rid2d.velocity.y));
+    //            }
+    //        }          
+    //    }
+    //    if (isOnLadder == false)
+    //    {
+    //        rid2d.gravityScale = gravityStore;
+    //    }
+    //}
 
     void Attack()
     {
